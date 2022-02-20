@@ -17,8 +17,8 @@
           <li><a class="nav-link scrollto" href="#services">Visi & Misi</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Peta DBD</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+          <li><a class="getstarted scrollto" href="#about">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
