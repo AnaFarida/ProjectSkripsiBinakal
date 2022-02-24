@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Feb 2022 pada 14.43
+-- Waktu pembuatan: 24 Feb 2022 pada 15.03
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -95,24 +95,6 @@ CREATE TABLE `pengguna` (
 INSERT INTO `pengguna` (`id_nama`, `nama`, `email`, `alamat`, `telepon`, `password`) VALUES
 (6, 'Ana Farida', 'E41182196@polije.ac.id', 'bondowoso', '546789064745', 'ana123'),
 (9, 'feny', 'feny@gmail.com', 'jember', '12345678912', 'feny123');
-
--- --------------------------------------------------------
-
---
--- Stand-in struktur untuk tampilan `v_desa`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `v_desa` (
-);
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `v_desa`
---
-DROP TABLE IF EXISTS `v_desa`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_desa`  AS SELECT `datadbd`.`jml_penderita` AS `jml_penderita`, `datadbd`.`jml_meninggal` AS `jml_meninggal`, `datadbd`.`bulan` AS `bulan`, `datadbd`.`tahun` AS `tahun`, `desa`.`nama_desa` AS `nama_desa` FROM (`datadbd` join `desa`) WHERE `desa`.`id_desa` = `desa`.`id_desa` ;
 
 --
 -- Indexes for dumped tables
