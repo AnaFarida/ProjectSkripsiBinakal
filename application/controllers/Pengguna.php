@@ -66,7 +66,7 @@ class Pengguna extends CI_Controller
                     'success_msg',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-                        <span class="alert-text"><strong>Selamat,</strong> data berhasil ditambahkan !</span>
+                        <span class="alert-text"><strong>Selamat,</strong> Data berhasil ditambahkan !</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -78,7 +78,7 @@ class Pengguna extends CI_Controller
                     'error_msg',
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-                        <span class="alert-text"><strong>Maaf,</strong> data gagal ditambahkan !</span>
+                        <span class="alert-text"><strong>Maaf,</strong> Data gagal ditambahkan !</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -122,7 +122,7 @@ class Pengguna extends CI_Controller
                     'success_msg',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
 							<span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-							<span class="alert-text"><strong>Selamat,</strong> data berhasil diperbaharui !</span>
+							<span class="alert-text"><strong>Selamat,</strong> Data berhasil diperbaharui !</span>
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -153,7 +153,7 @@ class Pengguna extends CI_Controller
                 'success_msg',
                 '<div class="alert alert-success alert-dismissible fade show" role="alert">
 					<span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-					<span class="alert-text"><strong>Selamat,</strong> data berhasil dihapus !</span>
+					<span class="alert-text"><strong>Selamat,</strong> Data berhasil dihapus !</span>
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -174,40 +174,4 @@ class Pengguna extends CI_Controller
             redirect('Pengguna');
         }
     }
-
-    // public function hapus_data($id_nama)
-    // {
-    //     $this->ModelPengguna->hapus_data($id_nama);
-    //     redirect('pengguna');
-    // }
-
-    // public function edit_data($id_nama)
-    // {
-    //     $where = array('id_nama' => $id_nama);
-    //     $data['pengguna'] = $this->ModelPengguna->edit_data($where,
-    //     'pengguna')->result();
-    // }
-
-    // public function update()
-    // {
-    //     $id_nama = $this->input->post('id_nama');
-    //     $nama = $this->input->post('nama');
-    //     $email = $this->input->post('email');
-    //     $alamat = $this->input->post('alamat');
-    //     $telepon = $this->input->post('telepon');
-    //     $password = $this->input->post('password');
-
-    //    $data = array(
-    //        'id_nama'    =>$id_nama,
-    //        'nama'       => $nama,
-    //        'email'      => $email,
-    //        'alamat'     => $alamat,
-    //        'telepon'    => $telepon,
-    //        'password'   => $password,
-    //    );
-
-    //    $where = array('id_nama' => $id_nama);
-    //    $this->ModelPengguna->update_data($where,$data, 'pengguna');
-    //    redirect('pengguna/index');
-    // }
 }

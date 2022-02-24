@@ -10,4 +10,20 @@ class Home extends CI_Controller {
         $this->load->view('home/templates/footer');
 
 	}
+
+        public function K_Means()
+        {
+                $this->load->view('home/templates/header');
+                $this->load->view('home/templates/navbar');
+                $this->load->view('home/K_Means');
+                $this->load->view('home/templates/footer'); 
+        }
+
+        public function Hasil()
+        {
+                $this->load->view('home/templates/header');
+                $this->load->view('home/templates/navbar');
+                $this->load->view('home/Hasil');
+                $this->load->view('home/templates/footer'); 
+        }
 }

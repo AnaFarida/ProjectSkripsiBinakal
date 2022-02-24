@@ -15,7 +15,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
           <li><a class="nav-link scrollto" href="#services">Visi & Misi</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Peta DBD</a></li>
+          <li><a class="nav-link scrollto" href="#team">Klastering DBD Binakal</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
           <li><a class="getstarted scrollto" href="#about">Login</a></li>

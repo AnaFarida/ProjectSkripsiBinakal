@@ -11,10 +11,10 @@
               <?php echo $error_msg; ?>
             <?php } ?>
           <?php } ?>
-          <h2>Data Pengguna</h2>
+          <h2>Data datadbd</h2>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Tambah Data Pengguna
+            Tambah Data DBD
           </button>
 
           <!-- Modal Hapus -->
@@ -38,58 +38,65 @@
             </div>
           </div>
 
-          <!-- Modal Tambah Data-->
+          <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data pengguna</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data DBD</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="<?= base_url('Pengguna/tambah') ?>" method="POST">
+                  <form action="<?= base_url('DataDBD/tambahdata') ?>" method="POST">
                     <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label>Desa</label>
+                        <select id="id_desa" name="nama_desa" class="form-control">
+                          <?php foreach ($datadbd as $datadb) : ?>
+                            <option value="<?= $datadb->id_desa; ?>"><?= $datadb->nama_desa ?></option>
+                          <?php endforeach ?>
+                        </select>
+
+                      </div>
+
+                      <div class="form-group col-md-4">
+                        <label for="inputTahun">Tahun</label>
+                        <select id="tahun" name="tahun" class="form-control">
+                          <option selected>Pilih Tahun...</option>
+                          <?php
+                          $mulai = date('Y') - 10;
+                          for ($i = $mulai; $i < $mulai + 15; $i++) {
+                            $sel = $i == date('Y') ? ' selected="selected"' : '';
+                            echo '<option value="' . $i . '"' . $sel . '>' . $i . '</option>';
+                          }
+                          ?>
+                        </select>
+                      </div>
                     </div>
-                    <div class="form-group ">
-                      <label>Nama</label>
-                      <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan nama lengkap ...">
-                      <?= form_error('nama', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label>Jumlah Penderita</label>
+                        <input type="number" class="form-control" id="jml_penderita" name="jml_penderita">
+                      <?= form_error('jml_penderita', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label">Jumlah Meninggal</label>
+                        <input type="number" class="form-control" id="jml_meninggal" name="jml_meninggal">
+                      <?= form_error('jml_meninggal', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
+                      </div>
                     </div>
-                    <div class="form-group ">
-                      <label>Email</label>
-                      <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email ...">
-                      <?= form_error('email', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
-                    <div class="form-group ">
-                      <label>Alamat</label>
-                      <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan alamat ...">
-                      <?= form_error('alamat', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
-                    </div>
-                    <div class="form-group ">
-                      <label>Nomor Telepon</label>
-                        <input type="text" name="telepon" id="telepon" class="form-control" placeholder="Masukkan no telepon ...">
-                        <?= form_error('telepon', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
-                    </div>
-                    <div class="form-group ">
-                      <label>Password</label>
-                      <input type="text" name="password1" id="password1" class="form-control" placeholder="Masukkan password ...">
-                      <?= form_error('password1', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
-                    </div>
-                    <div class="form-group ">
-                      <label>Konfirmasi Password</label>
-                      <input type="text" name="password2" id="password2" class="form-control" placeholder="Masukkan konfirmasi password ...">
-                      <?= form_error('password2', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
-                    </div>
-                    <button type="reset" class="btn btn-danger btn-sm">Reset</button>
-                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                  </form>
                 </div>
               </div>
             </div>
-
           </div>
+        </div>
+      </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
@@ -97,7 +104,7 @@
 
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Pengguna</h3>
+        <h3 class="card-title">Data DBD Puskesmas Binakal</h3>
       </div>
       <!-- /.card-header -->
       <div class="card-body">
@@ -105,35 +112,36 @@
           <thead>
             <tr class="text-center">
               <th> No </th>
-              <th> Nama </th>
-              <th> Email </th>
-              <th> Alamat </th>
-              <th> Nomor Telepon </th>
+              <th> Tahun</th>
+              <th> Desa </th>
+              <th> Jumlah Penderita </th>
+              <th> Jumlah Meninggal </th>
               <th> Aksi </th>
             </tr>
           </thead>
-          <?php $no = 1;
-          foreach ($pengguna as $user) : ?>
-            <tbody>
+          <tbody>
+            <?php $no = 1;
+            foreach ($datadbd as $datadb) : ?>
               <tr class="text-center">
                 <td> <?= $no++ ?> </td>
-                <td> <?= $user->nama ?> </td>
-                <td> <?= $user->email ?> </td>
-                <td> <?= $user->alamat ?> </td>
-                <td> <?= $user->telepon ?> </td>
+                <td> <?= $datadb->tahun ?> </td>
+                <td> <?= $datadb->nama_desa ?> </td>
+                <td> <?= $datadb->jml_penderita ?> </td>
+                <td> <?= $datadb->jml_meninggal ?> </td>
                 <td>
-                  <a href="<?= base_url('Pengguna/update/' . $user->id_nama) ?>" type="button" class="btn btn-info btn-sm">
+                  <a href="<?= base_url('datadbd/editdata/' . $datadb->id_data) ?>" type="button" class="btn btn-info btn-sm">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a href="" class="btn btn-danger btn-sm" onclick="confirm_modal('<?= base_url('Pengguna/delete/' . $user->id_nama) ?>')" type="button" data-toggle="modal" data-target="#deleteModal">
+                  <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Apakah data akan dihapus?')" href="<?= base_url('datadbd/delete/' . $datadb->id_data) ?>" type="button" data-toggle="modal" data-target="#deleteModal">
                     <i class="fas fa-trash"></i> Hapus
                   </a>
                 </td>
               </tr>
-            </tbody>
-          <?php endforeach ?>
+            <?php endforeach ?>
+          </tbody>
+
         </table>
       </div>
 
