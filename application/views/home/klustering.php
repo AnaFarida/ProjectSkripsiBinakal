@@ -10,19 +10,21 @@
                 </p>
             </div>
             <br>
-            <div class="row">
-                <div class="input-group mb-3">
-                    <input class="form-control" type="number" id="cluster" name="cluster"
-                        placeholder="Masukan jumlah klaster data 'Tidak Boleh Lebih dari 3'"
-                        onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
-                        min="1" max="3" required>
-                    <button class="btn btn-success" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                        Cluster
-                    </button>
+            <form action="<?= base_url('Hasil') ?>" method="post">
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="number" id="cluster" name="cluster"
+                            placeholder="Masukan jumlah klaster data 'Tidak Boleh Lebih dari 3'"
+                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                            min="1" max="3" required>
+                        <button class="btn btn-success" type="submit" id="button-addon2" data-mdb-ripple-color="dark">
+                            Cluster
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
             <div class="btn-box">
-                <a href="">
+                <a href="#data">
                     lihat Data
                 </a>
             </div>
@@ -31,12 +33,12 @@
 </section>
 
 
-<section class="department_section layout_padding">
+<section id="data" class="department_section layout_padding">
     <div class="department_container">
         <div class="container ">
             <div class="heading_container heading_center">
                 <h2>
-                    Klustering DBD
+                    Data DDB Puskesmas Binakal
                 </h2>
                 <br>
                 <table id="example1" class="table table-bordered table-striped">
