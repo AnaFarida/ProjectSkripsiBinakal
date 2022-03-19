@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+
+
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('ModelData');
+        }
+
 	public function index()
 	{
         $this->load->view('home/templates/header');
@@ -11,11 +19,13 @@ class Home extends CI_Controller {
 
 	}
 
-        public function K_Means()
+        public function KMeans()
         {
-                $this->load->view('home/templates/header');
-                $this->load->view('home/templates/navbar');
-                $this->load->view('home/K_Means');
+        $data['datadbd'] = $this->ModelData->getdata()->result();
+
+                $this->load->view('home/templates/header1', $data);
+               // $this->load->view('home/templates/navbar');
+                $this->load->view('home/klustering', $data);
                 $this->load->view('home/templates/footer'); 
         }
 

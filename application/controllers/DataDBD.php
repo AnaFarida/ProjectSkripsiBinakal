@@ -47,7 +47,8 @@ class DataDBD extends CI_Controller
             $dataPost = array(
                 'tahun' => $this->input->post('tahun'),
                 'jml_penderita' => $this->input->post('jml_penderita'),
-                'jml_meninggal' => $this->input->post('jml_meninggal')
+                'jentik_rumah' => $this->input->post('jentik_rumah'),
+                'jentik_sekolah' => $this->input->post('jentik_sekolah'),
             );
            
 

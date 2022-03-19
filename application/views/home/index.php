@@ -1,192 +1,185 @@
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-        <h1>Sistem Pemetaan Demam Berdarah Dengue Puskemas Binakal</h1>
-        <h2>Sistem ini dibuat untuk memberikan kemudahan dalam pemetaan Demam Berdarah Dengue Puskemas Binakal</h2>
-        <div>
-          <a href="#about" class="btn-get-started scrollto">Login</a>
-        </div>
-      </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
-      </div>
-    </div>
-  </div>
-
-</section><!-- End Hero -->
-
-<main id="main">
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-    <div class="container">
-
-      <div class="row justify-content-between">
-        <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-          <img src="assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
-        </div>
-        <div class="col-lg-6 pt-5 pt-lg-0">
-          <h3 data-aos="fade-up">Tentang Puskesmas Binakal</h3>
-          <p data-aos="fade-up" data-aos-delay="100">
-            Puskesmas Binakal merupakan Unit Pelaksana Teknis Dinas Kesehatan Kabupaten Bondowoso yang mempunyai wilayah kerja 1 (satu) Kecamatan, yaitu Kecamatan Binakal.
-          </p>
-          <p data-aos="fade-up" data-aos-delay="100">
-            Puskesmas Binakal melaksanakan pembangunan di bidang kesehatan secara mandiri dan mempunyai wewenang mengelola sumber daya, merencanakan dan mendesain bentuk pembangunan kesehatan di wilayah sesuai dengan situasi, kondisi, kultur budaya dan potensi setempat. Untuk menjalankan fungsinya dalam upaya meningkatkan jangkauan pelayanan kesehatan, Puskesmas didukung oleh unit-unit pelayanan fungsional yang meliputi Puskesmas Pembantu, Puskesmas Keliling, dan Bidan – Perawat di Desa.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End About Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title" alignitems="center">
-        <h2>Visi Puskemas Binakal</h2>
-        <p>Mewujudkan masyarakat sehat dan memberikan pelayanan kesehatan yang berkualitas</p>
-        <h2>Misi Puskemas Binakal</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-first-aid"></i></div>
-            <h4 class="title"><a href="">Misi</a></h4>
-            <p class="description">Menyelenggarakan upaya pemeliharaan kesehatan masyarakat sesuai prosedur yang terstandarisasi</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-check"></i></div>
-            <h4 class="title"><a href="">Misi</a></h4>
-            <p class="description">Meningkatkan kualitas SDM secara berkelanjutan sesuai kompetensi yang dibutuhkan</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i>
-              <h4 class="title"><a href="">Misi</a></h4>
-              <p class="description">Mengembangkan sarana dan mutu pelayanan sesuai kebutuhan masyarakat</p>
-            </div>
-          </div>
-
-          <!-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
-            </div>
-          </div> -->
-
-        </div>
-
-      </div>
-  </section><!-- End Services Section -->
-
-
-
-  <!-- ======= Peta DBD ======= -->
-  <section id="team" class="team">
-    <div class="container">
-
-      <div class="section-title" data-aos="fade-up">
-      <div class="col-lg-12">
-                    <h1>K-Means Clustering DBD Binakal</h1>
-                    <p style="margin-bottom: 10px; font-weight: 400; font-size: 20px">Masukkan jumlah kategori Daerah rawan DBD</p>
+<section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="detail-box">
+                                <h1>
+                                    Sistem Pemetaan Demam Berdarah Dengue Puskemas Binakal
+                                </h1>
+                                <p>
+                                    Sistem ini dibuat untuk memberikan kemudahan dalam pemetaan Demam Berdarah
+                                    Dengue Puskemas Binakal
+                                </p>
+                                <div class="btn-box">
+                                    <a href="" class="btn1">
+                                        Mulai Clustering
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-10">
-          <input class="form-control" type="number" id="cluster" name="cluster" placeholder="Masukan jumlah klaster data" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" min="1" max="3" required>
-          <small class="text-danger" style="font-weight: 400;">Tidak boleh lebih dari 3 kluster</small>
+            </div>
         </div>
-        <div class="col-sm-2">
-          <button class="btn btn-success ml-4" type="submit" name="submit" id="submit">
-            <i class="ni ni-send"></i> Cluster
-          </button>
-        </div>
-
-      </div>
-
     </div>
-  </section><!-- End Team Section -->
 
-  <!-- ======= Contact Us Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+</section>
+<!-- end slider section -->
+</div>
 
-      <div class="section-title">
-        <h2>Kontak Kami</h2>
-      </div>
 
-      <div class="row">
+<!-- department section -->
 
-        <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="info">
-            <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Lokasi:</h4>
-              <p>Jl Sumber waru, Malar, Binakal, Kabupaten Bondowoso, Jawa Timur 68251</p>
+<section class="department_section layout_padding">
+    <div class="department_container">
+        <div class="container ">
+            <div class="heading_container heading_center">
+                <h2>
+                    Visi Puskemas Binakal
+                </h2>
+                <p>
+                    Mewujudkan masyarakat sehat dan memberikan pelayanan kesehatan yang berkualitas
+                </p>
             </div>
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>info@example.com</p>
-            </div>
-
-            <!-- <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div> -->
-
-            <iframe src="https://goo.gl/maps/MEHZckRYzobY5qda9" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-          </div>
-
-        </div>
-
-        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="row">
-              <div class="form-group col-md-6">
-                <label for="name">Nama</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Name" required>
-              </div>
-              <div class="form-group col-md-6 mt-3 mt-md-0">
-                <label for="name">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-              </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="<?= base_url(); ?>assets/images/s1.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Misi
+                            </h5>
+                            <p>
+                                Menyelenggarakan upaya pemeliharaan kesehatan masyarakat sesuai prosedur yang
+                                terstandarisasi
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="<?= base_url(); ?>assets/images/s2.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Misi
+                            </h5>
+                            <p>
+                                Meningkatkan kualitas SDM secara berkelanjutan sesuai kompetensi yang dibutuhkan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="<?= base_url(); ?>assets/images/s4.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Misi
+                            </h5>
+                            <p>
+                                Mengembangkan sarana dan mutu pelayanan sesuai kebutuhan masyarakat
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group mt-3">
-              <label for="name">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <label for="name">Pesan</label>
-              <textarea class="form-control" name="message" rows="10" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Pesan Anda sudah terkirim. Terimakasih</div>
-            </div>
-            <div class="text-center"><button type="submit">Kirim Pesan</button></div>
-          </form>
         </div>
-
-      </div>
-
     </div>
-  </section><!-- End Contact Us Section -->
+</section>
 
-</main><!-- End #main -->
+<!-- end department section -->
+
+<section class="doctor_section layout_padding">
+    <div class="about_section layout_margin-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="<?= base_url(); ?>assets/images/about-img.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="heading_container">
+                        <h2>
+                            Tentang <span> Puskesmas Binakal</span>
+                        </h2>
+                        <p>
+                            Puskesmas Binakal merupakan Unit Pelaksana Teknis Dinas Kesehatan Kabupaten
+                            Bondowoso yang mempunyai wilayah kerja 1 (satu) Kecamatan, yaitu Kecamatan Binakal. If you
+                            Puskesmas Binakal melaksanakan pembangunan di bidang kesehatan secara mandiri dan
+                            mempunyai wewenang mengelola sumber daya, merencanakan dan mendesain bentuk
+                            pembangunan kesehatan di wilayah sesuai dengan situasi, kondisi, kultur budaya dan potensi
+                            setempat. Untuk menjalankan fungsinya dalam upaya meningkatkan jangkauan pelayanan
+                            kesehatan, Puskesmas didukung oleh unit-unit pelayanan fungsional yang meliputi Puskesmas
+                            Pembantu,
+                            Puskesmas Keliling, dan Bidan Perawat di Desa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end doctor section -->
+
+<!-- contact section -->
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                Kontak
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container contact-form">
+                    <form action="">
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div>
+                                    <input type="text" placeholder="Nama" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div>
+                                    <input type="text" placeholder="Nomor Telepon" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <input type="text" class="message-box" placeholder="Message" />
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container">
+                    <div class="map">
+                        <div id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end contact section -->
+
+<!-- end client section -->

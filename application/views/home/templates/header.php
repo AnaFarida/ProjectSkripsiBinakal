@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.png" type="">
 
-  <title>Ninestars Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title> SIGDBD_BINAKAL </title>
 
-  <!-- Favicons -->
-  <link href="<?= base_url(); ?>assets/img/favicon.png" rel="icon">
-  <link href="<?= base_url(); ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.css" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="<?= base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-  <!-- Template Main CSS File -->
-  <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet">
+    <!-- font awesome style -->
+    <link href="<?= base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" />
 
-  <!-- =======================================================
-  * Template Name: Ninestars - v4.7.0
-  * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Custom styles for this template -->
+    <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="<?= base_url(); ?>assets/css/responsive.css" rel="stylesheet" />
+
 </head>
+
+<body>
