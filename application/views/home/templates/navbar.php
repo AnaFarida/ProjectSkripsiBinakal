@@ -1,50 +1,60 @@
-<div class="hero_area">
-
-    <div class="hero_bg_box">
-        <img src="<?= base_url(); ?>assets/images/hero-bg.png" alt="">
-    </div>
-
-    <!-- header section strats -->
-    <header class="header_section">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="index.html">
-                    <span>
-                        SIGDBD_BINAKAL
-                    </span>
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class=""> </span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= base_url(); ?>Home">Home <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html"> About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url(); ?>Home/KMeans">Klustering DBD</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="doctors.html">Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Kontak</a>
-                        </li>
-                        <form class="form-inline">
-                            <button type="button" class="btn btn-light">Masuk</button>
-                        </form>
-                    </ul>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="<?= base_url(); ?>assets/assets/img/logo/loder.png" alt="">
                 </div>
-            </nav>
+            </div>
         </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!--? Header Start -->
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="<?= base_url(); ?>assets/assets/img/logo/logo.png"
+                                        alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="<?= base_url(); ?>Home">Home</a></li>
+                                            <li><a href="<?= base_url(); ?>Home/KMeans">Klustering DBD</a></li>
+                                            <li><a href="blog.html">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="header-right-btn f-right d-none d-lg-block ml-15">
+                                    <a href="<?= base_url(); ?>Admin/Login" class="btn header-btn">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
     </header>
-    <!-- end header section -->
-    <!-- slider section -->

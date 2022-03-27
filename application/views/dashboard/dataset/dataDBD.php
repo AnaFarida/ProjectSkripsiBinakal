@@ -126,7 +126,7 @@
                     <thead>
                         <tr class="text-center">
                             <th> No </th>
-                            <th> Tahun</th>
+                            <th colspan="2"> Tahun</th>
                             <th> Desa </th>
                             <th> Jumlah Penderita </th>
                             <th> Jumlah Ditemukan Jentik Rumah </th>
@@ -151,8 +151,7 @@
                                     </i>
                                     Edit
                                 </a>
-                                <a href="" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Apakah data akan dihapus?')"
+                                <a class="btn btn-danger btn-sm" onclick="return confirm('Apakah data akan dihapus?')"
                                     href="<?= base_url('datadbd/delete/' . $datadb->id_data) ?>" type="button"
                                     data-toggle="modal" data-target="#deleteModal">
                                     <i class="fas fa-trash"></i> Hapus

@@ -31,7 +31,7 @@ class DataDBD extends CI_Controller
     {
      
         $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
-        $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
+        $this->form_validation->set_rules('jml_meninggal', 'jumlah meninggal', 'required|numeric');
         $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
 
         if ($this->form_validation->run() == false) {
@@ -47,8 +47,7 @@ class DataDBD extends CI_Controller
             $dataPost = array(
                 'tahun' => $this->input->post('tahun'),
                 'jml_penderita' => $this->input->post('jml_penderita'),
-                'jentik_rumah' => $this->input->post('jentik_rumah'),
-                'jentik_sekolah' => $this->input->post('jentik_sekolah'),
+                'jml_meninggal' => $this->input->post('jml_meninggal'),
             );
            
 
@@ -83,7 +82,7 @@ class DataDBD extends CI_Controller
     public function editdata($id = null)
     {
         $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
-        $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
+        $this->form_validation->set_rules('jml_meninggal', 'jumlah meninggal', 'required|numeric');
         $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
 
         if ($this->form_validation->run() == false) {

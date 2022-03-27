@@ -45,6 +45,11 @@ class ModelData extends CI_Model{
 
 		return true;
 	}
+    public function getTahunFilter()
+    {
+        $query = $this->db->query("SELECT tahun FROM datadbd Group by tahun");
+        return $query->result();
+    }
 
     
 

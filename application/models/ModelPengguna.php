@@ -18,6 +18,18 @@ class ModelPengguna extends CI_Model{
         return $this->db->insert('pengguna', $data);
     }
 
+    public function active($id)
+    {
+        $this->db->where('id_nama', $id);
+        $this->db->update('pengguna', ['is_active' => '1']);
+    }
+
+    public function nonActive($id)
+    {
+        $this->db->where('id_nama', $id);
+        $this->db->update('pengguna', ['is_active' => '0']);
+    }
+
     public function delete($id)
     {
         $this->db->where("id_nama", $id);
@@ -38,4 +50,3 @@ class ModelPengguna extends CI_Model{
 
   
 }
-

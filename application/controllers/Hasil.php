@@ -52,12 +52,13 @@ class Hasil extends CI_Controller
 		$hasil['centroid'] = $centroid;
 		$hasil['cluster'] = $cluster;
 		$hasil['multi_cluster'] = $multi_cluster;
-		$hasil['kecamatan'] = $this->ModelKmeans->getNama();
+		$hasil['desa'] = $this->ModelKmeans->getNamaDesa();
 		$hasil['jumlah_per_centroid'] = $jumlah_per_centroid;
 		$hasil['short_cluster'] = $short_cluster;
 
 
-        $this->load->view('home/templates/header1', $data);
+        $this->load->view('home/templates/header', $data);
+        $this->load->view('home/templates/navbar', $data);
         $this->load->view('home/hasilKmeans', $hasil);
         $this->load->view('home/templates/footer'); 
 	}
@@ -109,7 +110,7 @@ class Hasil extends CI_Controller
 				// $jarak_centroid = [];
 				$jarak_centroid[$row_m_data][$row_m_centroid] = 0.0;
 				$jarak = 0.0;
-
+				
 				foreach ($m_centroid as $row_single_centroid => $single_centroid) {
 					$single_data = $m_data[$row_single_centroid];
 					$jarak += pow(($single_data - $single_centroid), 2);
@@ -152,7 +153,7 @@ class Hasil extends CI_Controller
 		// di kembalikan kedalam variable yang memanggil fungsi new_centroid()
 		$centroid_baru = array();
 		foreach ($multi_cluster as $row_m_multi_cluster => $m_multi_cluster) {
-			foreach ($centroid[0] as $row_m_centroid => $_m_centroid) { // hanya agar looping sebanyak jumlah kecamatan
+			foreach ($centroid[0] as $row_m_centroid => $_m_centroid) { // hanya agar looping sebanyak jumlah desa
 				$temp_centroid = 0;
 				// echo "<br>start||";
 				foreach ($m_multi_cluster as $n_multi_cluster) {

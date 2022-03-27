@@ -1,38 +1,27 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="zxx">
 
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.png" type="">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SIG_DBD</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/assets/img/favicon.ico">
 
-    <title> SIGDBD_BINAKAL </title>
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.css" />
-
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <!--owl slider stylesheet -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-    <!-- font awesome style -->
-    <link href="<?= base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet" />
-
-    <!-- Custom styles for this template -->
-    <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="<?= base_url(); ?>assets/css/responsive.css" rel="stylesheet" />
-
+    <!-- CSS here -->
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/slicknav.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/flaticon.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/gijgo.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/animate.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/animated-headline.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/slick.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/nice-select.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/style.css">
 </head>
-
-<body>

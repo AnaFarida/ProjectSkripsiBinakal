@@ -8,11 +8,6 @@ class ModelKmeans extends CI_Model
         $this->load->database();
     }
 
-    // DATA RANDOM
-    public function random($jk)    {
-        return $this->db->query("SELECT jml_penderita, jentik_rumah, jentik_sekolah FROM datadbd")->result_array();
-    }
-
     // GET DATA dari Model
     function getAll()   {
         return $this->db->query("SELECT * FROM datadbd")->result_array();
@@ -20,11 +15,11 @@ class ModelKmeans extends CI_Model
 
     // GET DATA dari Model
     function getData()   {
-        return $this->db->query("SELECT jml_penderita, jentik_rumah, jentik_sekolah FROM datadbd")->result_array();
+        return $this->db->query("SELECT jml_penderita, jml_meninggal FROM datadbd")->result_array();
     }
 
     // GET DATA dari Model
-    function getNama()   {
+    function getNamaDesa()   {
         return $this->db->query("SELECT nama_desa FROM desa, datadbd WHERE desa.id_desa = datadbd.id_desa")->result_array();
     }
 

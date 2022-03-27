@@ -21,10 +21,11 @@ class Home extends CI_Controller {
 
         public function KMeans()
         {
-        $data['datadbd'] = $this->ModelData->getdata()->result();
+                $data['datadbd'] = $this->ModelData->getdata()->result();
+                //$data['tahun'] = $this->ModelData->getTahunFilter();
 
-                $this->load->view('home/templates/header1', $data);
-               // $this->load->view('home/templates/navbar');
+                $this->load->view('home/templates/header', $data);
+               $this->load->view('home/templates/navbar');
                 $this->load->view('home/klustering', $data);
                 $this->load->view('home/templates/footer'); 
         }

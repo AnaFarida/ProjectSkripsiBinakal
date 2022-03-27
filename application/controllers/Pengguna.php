@@ -37,10 +37,14 @@ class Pengguna extends CI_Controller
     public function tambah()
     {
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim|max_length[100]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.email]', [
+            'is_unique' => 'Email sudah terdaftar!'
+        ]);
         $this->form_validation->set_rules('telepon', 'No Telepon', 'required|numeric|min_length[11]|max_length[13]');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|max_length[255]');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|max_length[100]');
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|max_length[100]|matches[password2]', [
+            'matches' => 'Password tidak sama!',
+            'min_length' => 'Password terlalu pendek!']);
         $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|matches[password1]');
 
         if ($this->form_validation->run() == false) {
@@ -57,8 +61,12 @@ class Pengguna extends CI_Controller
                 'nama' => $this->input->post('nama'),
                 'email' => $this->input->post('email'),
                 'alamat' => $this->input->post('alamat'),
+                'image' => 'default.png',
                 'telepon' => $this->input->post('telepon'),
-                'password' => $this->input->post('password1')
+                'password' => password_hash($this->input->post('password1'),
+                PASSWORD_DEFAULT),
+                'is_active' => 1,
+                'created' => date('Y-m-d H:i:s'),
             );
 
             if ($this->ModelPengguna->create($dataPost)) {
