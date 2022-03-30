@@ -28,4 +28,8 @@ class ModelKmeans extends CI_Model
         return $this->db->query("SELECT * FROM datadbd")->num_rows();
     }
 
+    function getRel() {
+        return $this->db->query("SELECT desa.*, datadbd.* FROM desa JOIN datadbd ON desa.id_desa = datadbd.id_desa")->result_array();
+    }
+
 }

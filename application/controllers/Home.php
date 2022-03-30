@@ -25,16 +25,9 @@ class Home extends CI_Controller {
                 //$data['tahun'] = $this->ModelData->getTahunFilter();
 
                 $this->load->view('home/templates/header', $data);
-               $this->load->view('home/templates/navbar');
+                $this->load->view('home/templates/navbar');
                 $this->load->view('home/klustering', $data);
-                $this->load->view('home/templates/footer'); 
+                $this->load->view('home/templates/footer');
         }
 
-        public function Hasil()
-        {
-                $this->load->view('home/templates/header');
-                $this->load->view('home/templates/navbar');
-                $this->load->view('home/Hasil');
-                $this->load->view('home/templates/footer'); 
-        }
 }

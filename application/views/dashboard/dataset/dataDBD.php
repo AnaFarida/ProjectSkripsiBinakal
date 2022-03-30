@@ -29,9 +29,6 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    Tekan batal untuk kembali, dan tekan hapus untuk menghapus data
-                                </div>
                                 <div class="modal-footer" style="margin: 0rem;">
                                     <a type="button" class="btn btn-danger text-white" data-dismiss="modal"
                                         style="margin-bottom: .25rem;">Batal</a>
@@ -88,17 +85,12 @@
                                                 <?= form_error('jml_penderita', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label">Jumlah Ditemukan Jentik Rumah</label>
+                                                <label">Jumlah Meninggal</label>
                                                     <input type="number" class="form-control" id="jentik_rumah"
                                                         name="jentik_rumah">
                                                     <?= form_error('jentik_rumah', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                             </div>
-                                            <div class="form-group col-md-4">
-                                                <label">Jumlah Ditemukan Jentik sekolah</label>
-                                                    <input type="number" class="form-control" id="jentik_rumah"
-                                                        name="jentik_rumah">
-                                                    <?= form_error('jentik_rumah', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
-                                            </div>
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -126,11 +118,9 @@
                     <thead>
                         <tr class="text-center">
                             <th> No </th>
-                            <th colspan="2"> Tahun</th>
                             <th> Desa </th>
                             <th> Jumlah Penderita </th>
-                            <th> Jumlah Ditemukan Jentik Rumah </th>
-                            <th> Jumlah Ditemukan Jentik Rumah </th>
+                            <th> Jumlah Meninggal </th>
                             <th> Aksi </th>
                         </tr>
                     </thead>
@@ -139,11 +129,9 @@
             foreach ($datadbd as $datadb) : ?>
                         <tr class="text-center">
                             <td> <?= $no++ ?> </td>
-                            <td> <?= $datadb->tahun ?> </td>
                             <td> <?= $datadb->nama_desa ?> </td>
                             <td> <?= $datadb->jml_penderita ?> </td>
-                            <td> <?= $datadb->jentik_rumah ?> </td>
-                            <td> <?= $datadb->jentik_sekolah ?> </td>
+                            <td> <?= $datadb->jml_meninggal ?> </td>
                             <td>
                                 <a href="<?= base_url('datadbd/editdata/' . $datadb->id_data) ?>" type="button"
                                     class="btn btn-info btn-sm">

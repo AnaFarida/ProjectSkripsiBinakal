@@ -51,6 +51,14 @@ class ModelData extends CI_Model{
         return $query->result();
     }
 
+    function detail(){
+        $this->db->select('*');
+        $this->db->from('datadbd');
+        $this->db->join('desa','desa.id_desa = datadbd.id_desa');      
+        $query = $this->db->get();
+        return $query;
+     }
+
     
 
 

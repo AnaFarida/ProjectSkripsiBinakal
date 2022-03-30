@@ -93,13 +93,12 @@ class DataDBD extends CI_Controller
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);
-            $this->load->view('dashboard/DataDBD/editdata', $data);
+            $this->load->view('dashboard/DataDBD/edit_data', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
             $update = $this->ModelData->update(array(
                 'id_data'   => $this->input->post('id_data'),
                 'id_desa'   => $this->input->post('id_desa'),
-                'tahun' => $this->input->post('tahun'),
                 'jml_penderita' => $this->input->post('jml_penderita'),
                 'jml_meninggal' => $this->input->post('jml_meninggal')
             ), $id);

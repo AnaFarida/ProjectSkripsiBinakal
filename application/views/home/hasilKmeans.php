@@ -50,9 +50,9 @@
                                 Akhir</p>
                         </legend>
                         <?php for ($i = 0; $i < $jumlah_centroid; $i++) {
-            foreach ($centroid as $key => $value) {
-                $var = array_sum($value);
-                if ($short_cluster[$i] == $var) { ?>
+                               foreach ($centroid as $key => $value) {
+                        $var = array_sum($value);
+                        if ($short_cluster[$i] == $var) { ?>
                         <div class="mb-4">
                             <p style="margin-bottom:10px" class="form-label">Centroid <?= ($i + 1) ?></p>
                             <input type="text" class="form-control form-control-sm" value="<?= implode(", ", $value) ?>"
@@ -77,7 +77,9 @@
                                         <th>Daerah Hasil Cluster</th>
                                     </tr>
                                 </thead>
-                                <?php for ($i = 0; $i < $jumlah_centroid; $i++) { ?>
+                                <!-- <?php for ($i = 0; $i < $jumlah_centroid; $i++) { 
+                                    
+                                ?>
                                 <tbody>
                                     <tr>
                                         <td style="text-align: center;">
@@ -91,10 +93,166 @@
                                     echo " | ";
                                 } ?></b>
                                         </td>
+                                    </tr> -->
+                                <!-- </tbody> -->
+                                <!-- <?php } ?> -->
+
+                                <?php $no = 1;
+                                        $sort = [];
+                                        foreach ($index_arr as $key => $value) {?>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <b><?= $no; ?></b>
+                                        </td>
+                                        <td><?php
+                                                $i = $value - 1;
+                                                $sortDesa = [];
+                                                for ($j = 0; $j < count($multi_cluster[$i]); $j++) {
+                                                    $k = $multi_cluster[$i][$j];
+                                                    $sortDesa[] = $desa[$k]['nama_desa'];
+                                                    echo implode($desa[$k]);
+                                                    echo ", ";
+                                                }
+                                                $sort[] = $sortDesa;?>
+                                        </td>
                                     </tr>
                                 </tbody>
-                                <?php } ?>
+                                <?php $no++;
+                                        } ?>
+
                             </table>
+
+                            <legend
+                                style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #f55858; color: #ffffff;">
+                                <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Pemetaan
+                                </p>
+                            </legend>
+                            <div id="map"></div>
+                            <style>
+                            #map {
+                                width: 100%;
+                                height: 60vh;
+                            }
+
+                            .info {
+                                padding: 6px 8px;
+                                font: 12px/14px Arial, Helvetica, sans-serif;
+                                background: white;
+                                background: rgba(255, 255, 255, 0.8);
+                                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                                border-radius: 5px;
+                            }
+
+                            .info h4 {
+                                margin: 0 0 5px;
+                                color: #777;
+                            }
+
+                            .legend {
+                                text-align: left;
+                                line-height: 18px;
+                                color: #555;
+                            }
+
+                            .legend i {
+                                width: 16px;
+                                height: 16px;
+                                float: left;
+                                margin-right: 8px;
+                                opacity: 0.7;
+                            }
+                            </style>
+                            <script>
+                            var peta1 = L.tileLayer(
+                                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                                    id: 'mapbox/streets-v11',
+                                    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+                                });
+
+                            var vector_desa = L.layerGroup();
+
+                            <?php foreach ($data_desa as $data) {
+                $warna = ['#e20200', '#f9eb00', '#03cc3d'];
+                $warnaIndex = 0;
+                foreach ($sort as $index => $s) {
+                    if (in_array($data['nama_desa'], $s)) {
+                        if ((count($sort) == 1 && $index == 0) || (count($sort) == 2 && $index == 1)) {
+                            $warnaIndex = 2;
+                        }
+                        // } else {
+                        //     $warnaIndex = $index;
+                        // }
+                    }
+                }
+            ?>
+                            L.geoJSON(<?= $data['geojson'] ?>, {
+                                style: {
+                                    color: 'black',
+                                    fillColor: '<?= $warna[$warnaIndex] ?>',
+                                    fillOpacity: 1.0,
+                                    weight: 1,
+                                    pointToLayer: function(feature, latlng) {
+                                        console.log(latlng);
+                                        return L.circleMarker(latlng, geojsonMarkerOptions);
+                                    }
+                                },
+                            }).addTo(vector_desa);
+                            <?php } ?>
+
+                            var desa = L.layerGroup();
+
+                            var blueIcon = new L.Icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            });
+
+                            var map = L.map('map', {
+                                center: [-7.913890374682106, 113.73443265411667],
+                                zoom: 10,
+                                layers: [peta1, vector_desa],
+                            });
+
+                            <?php foreach ($data_desa as $data) { ?>
+                            var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
+                                icon: blueIcon
+                            }).bindPopup(
+                                '<b class="text-sm"><?= $data['nama_desa'] ?></b><br><span>Jumlah Penderita : <?= $data['jml_penderita'] ?>,
+                                Jumlah Meninggal: <?= $data['jml_meninggal'] ?> < /span>'
+                            ).addTo(map);
+                            <?php } ?>
+
+                            var baseMaps = {
+                                "Map": peta1,
+                            };
+
+                            L.control.layers(baseMaps).addTo(map);
+
+                            var legend = L.control({
+                                position: 'bottomright'
+                            });
+
+                            legend.onAdd = function(map) {
+                                var div = L.DomUtil.create('div', 'info legend leaflet-control br {clear: both;}'),
+                                    grades = ['Dearah Endemis', 'Daerah Potensial', 'Daerah Bebas', ],
+                                    labels = [],
+                                    from, to;
+
+                                labels.push(
+                                    '<i style="background:#e20200' + '"></i> Dearah Endemis',
+                                    '<i style="background:#f9eb00' + '"></i> Daerah Potensial',
+                                    '<i style="background:#03cc3d' + '"></i> Daerah Bebas',
+                                );
+
+                                div.innerHTML = labels.join('<br>');
+                                return div;
+                            };
+                            legend.addTo(map);
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -109,6 +267,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <!--? Testimonial Area Start -->
     <section class="testimonial-area testimonial-padding fix pb-bottom">

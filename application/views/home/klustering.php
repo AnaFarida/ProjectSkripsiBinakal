@@ -6,16 +6,14 @@
                     Klustering DBD
                 </h2>
                 <p>
-                    Masukkan Jumlah Kelompok Daerah Rawan DBD
+                    Klik Cluster untuk mengetahui hasil klustering DBD di Puskesmas Binakal
                 </p>
             </div>
             <br>
             <form action="<?= base_url('Hasil') ?>" method="post">
                 <div class="row">
                     <div class="input-group mb-3">
-                        <input class="form-control" type="hidden" value="3" type="number" id="cluster" name="cluster"
-                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
-                            min="1" max="3" required>
+                        <input class="form-control" type="hidden" value="3" type="number" id="cluster" name="cluster">
                         <button class="btn btn-success" type="submit" id="button-addon2" data-mdb-ripple-color="dark">
                             Cluster
                         </button>

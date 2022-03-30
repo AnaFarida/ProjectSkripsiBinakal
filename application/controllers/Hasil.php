@@ -45,6 +45,22 @@ class Hasil extends CI_Controller
 		$short_cluster = $jumlah_per_centroid;
 		rsort($short_cluster);
 
+		$short_cluster_index = [];
+		$default = 1;
+		foreach ($jumlah_per_centroid as $key => $value) {
+			$short_cluster_index[$default] = $value;
+			$default++;
+		}
+
+		$index_arr = [];
+		foreach ($short_cluster as $kunci => $sc) {
+			foreach ($short_cluster_index as $key => $value) {
+				if ($value ==$sc) {
+					array_push($index_arr, $key);
+				}
+			}
+		}
+
 		$hasil = array();
 		$hasil['jumlah_centroid'] = $jumlah_centroid;
 		$hasil['jumlah_data'] = $this->ModelKmeans->hitungBaris();
@@ -53,8 +69,11 @@ class Hasil extends CI_Controller
 		$hasil['cluster'] = $cluster;
 		$hasil['multi_cluster'] = $multi_cluster;
 		$hasil['desa'] = $this->ModelKmeans->getNamaDesa();
+		$hasil['data_desa'] = $this->ModelKmeans->getAll();
 		$hasil['jumlah_per_centroid'] = $jumlah_per_centroid;
 		$hasil['short_cluster'] = $short_cluster;
+		$hasil['index_arr'] = $index_arr;
+		$hasil['data_des'] = $this->ModelKmeans->getRel();
 
 
         $this->load->view('home/templates/header', $data);

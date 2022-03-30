@@ -17,7 +17,7 @@
                                         kemudahan dalam<br>
                                         pemetaan Demam Berdarah
                                         Dengue Puskemas Binakal</p>
-                                    <a href="services.html" class="btn" data-animation="fadeInLeft"
+                                    <a href="<?= base_url(); ?>Home/KMeans" class="btn" data-animation="fadeInLeft"
                                         data-delay=".3s">Mulai Clustering</a>
                                 </div>
                             </div>
@@ -118,10 +118,6 @@
             </div>
         </div>
     </div>
-    <!-- Services Area End -->
-    <!--? Testimonial Area Start -->
-    <section class="testimonial-area testimonial-padding fix">
-    </section>
 
     <section class="home-blog-area section-padding30">
 
@@ -129,30 +125,7 @@
     <!-- Blog Area End -->
     <!--? About Law Start-->
     <section class="about-low-area mt-30">
-        <div class="container">
-            <div class="about-cap-wrapper">
-                <div class="row">
-                    <div class="col-xl-5  col-lg-6 col-md-10 offset-xl-1">
-                        <div class="about-caption mb-50">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle mb-35">
-                                <h2>100% satisfaction guaranteed.</h2>
-                            </div>
-                            <p>Almost before we knew it, we had left the ground</p>
-                            <a href="about.html" class="border-btn">Make an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <!-- about-img -->
-                        <!-- <div class="about-img">
-                            <div class="about-font-img">
-                                <img src="<?= base_url(); ?>assets/assets/img/gallery/about2.png" alt="">
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </section>
     <!-- About Law End-->
 </main>

@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="footer-border">
                     <div class="row">
-                        <div class="col-lg-7 col-md-12 col-sm-12 ">
+                        <div class="col-lg-5 col-md-12 ">
                             <p>
                                 &copy;<script>
                                 document.write(new Date().getFullYear());
@@ -16,13 +16,17 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>
-                        <div class="col-lg-5 col-md-12 col-sm-12">
-                            <ul class="social">
+                        <div class="col-lg-2 col-md-10 col-sm-10">
+                            <ul>
                                 <li><img src="<?= base_url(); ?>assets/assets/img/logo/Logo_Polije.png" alt=""
                                         width="150px">
                                 </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-10 col-sm-10">
+                            <ul>
                                 <li><img src="<?= base_url(); ?>assets/assets/img/logo/Logo_JTI.png" alt=""
-                                        width="80px">
+                                        width="90px">
                                 </li>
                             </ul>
                         </div>

@@ -32,14 +32,14 @@
                                         <ul id="navigation">
                                             <li><a href="<?= base_url(); ?>Home">Home</a></li>
                                             <li><a href="<?= base_url(); ?>Home/KMeans">Klustering DBD</a></li>
-                                            <li><a href="blog.html">Blog</a>
+                                            <!-- <li><a href="blog.html">Blog</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="blog_details.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Element</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            </li> -->
+                                            <!-- <li><a href="contact.html">Author</a></li> -->
                                         </ul>
                                     </nav>
                                 </div>
