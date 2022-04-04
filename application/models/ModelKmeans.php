@@ -12,6 +12,9 @@ class ModelKmeans extends CI_Model
     function getAll()   {
         return $this->db->query("SELECT * FROM datadbd")->result_array();
     }
+    function getDesa()   {
+        return $this->db->query("SELECT * FROM desa")->result_array();
+    }
 
     // GET DATA dari Model
     function getData()   {

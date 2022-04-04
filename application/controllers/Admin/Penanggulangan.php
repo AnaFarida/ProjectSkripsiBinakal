@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengguna extends CI_Controller
+class Penanggulangan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('ModelPengguna');
+        $this->load->model('ModelPenanggulangan');
         $this->load->library('form_validation');
     }
 
@@ -14,63 +14,39 @@ class Pengguna extends CI_Controller
     {
         $data = array();
 
-        //Flashdata
-        if ($this->session->userdata('success_msg')) {
-            $data['success_msg'] = $this->session->userdata('success_msg');
-            $this->session->unset_userdata('success_msg');
-        }
-        if ($this->session->userdata('error_msg')) {
-            $data['error_msg'] = $this->session->userdata('error_msg');
-            $this->session->unset_userdata('error_msg');
-        }
-
         $data['title'] = "Dashboard Admin";
-        
-        $data['pengguna'] = $this->ModelPengguna->tampil_data()->result();
+        $data['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
+        $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
 
         $this->load->view('dashboard/templates/header', $data);
         $this->load->view('dashboard/templates/navbar', $data);
         $this->load->view('dashboard/templates/sidebar', $data);
-        $this->load->view('dashboard/pengguna', $data);
+        $this->load->view('dashboard/penanggulangan', $data);
         $this->load->view('dashboard/templates/footer');
     }
 
     public function tambah()
     {
-        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim|max_length[100]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[pengguna.email]', [
-            'is_unique' => 'Email sudah terdaftar!'
-        ]);
-        $this->form_validation->set_rules('telepon', 'No Telepon', 'required|numeric|min_length[11]|max_length[13]');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|max_length[255]');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|max_length[100]|matches[password2]', [
-            'matches' => 'Password tidak sama!',
-            'min_length' => 'Password terlalu pendek!']);
-        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|matches[password1]');
+        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim|max_length[100]');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
-            $data['pengguna'] = $this->ModelPengguna->tampil_data()->result();
+            $data['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
 
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);
-            $this->load->view('dashboard/pengguna', $data);
+            $this->load->view('dashboard/penanggulangan', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
             $dataPost = array(
-                'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'alamat' => $this->input->post('alamat'),
-                'image' => 'default.png',
-                'telepon' => $this->input->post('telepon'),
-                'password' => password_hash($this->input->post('password1'),
-                PASSWORD_DEFAULT),
-                'is_active' => 1,
+                'penanggulangan' => $this->input->post('penanggulangan'),
                 'created' => date('Y-m-d H:i:s'),
+                'updated' => date('Y-m-d H:i:s'),
             );
 
-            if ($this->ModelPengguna->create($dataPost)) {
+            if ($this->ModelPenanggulangan->create($dataPost)) {
                 $this->session->set_flashdata(
                     'success_msg',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -81,7 +57,7 @@ class Pengguna extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('Pengguna');
+                redirect('Admin/penanggulangan');
             } else {
                 $this->session->set_flashdata(
                     'error_msg',
@@ -93,38 +69,29 @@ class Pengguna extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('Pengguna');
+                redirect('Admin/penanggulangan');
             }
         }
     }
 
     public function update($id = null)
     {
-        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim|max_length[100]');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('nohp', 'No Telepon', 'required|numeric|min_length[11]|max_length[13]');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|max_length[255]');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|max_length[100]');
-        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|matches[password1]');
+        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim|max_length[100]');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
-            $data['pengguna'] = $this->ModelPengguna->tampil_data()->result();
-            $data['detail']    = $this->ModelPengguna->detail($id);
+            $data['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
+            $data['detail']    = $this->ModelPenanggulangan->detail($id);
 
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);
-            $this->load->view('dashboard/pengguna/edit_data', $data);
+            $this->load->view('dashboard/edit_data', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
-            $update = $this->ModelPengguna->update(array(
-                'id_nama'   => $this->input->post('id_nama'),
-                'nama'      => $this->input->post('nama'),
-                'email'     => $this->input->post('email'),
-                'alamat'    => $this->input->post('alamat'),
-                'telepon'   => $this->input->post('nohp'),
-                'password'  => $this->input->post('password1')
+            $update = $this->ModelPenanggulangan->update(array(
+                'id_pnglngan'   => $this->input->post('id_pnglngan'),
+                'penanggulangan'      => $this->input->post('penanggulangan')
             ), $id);
             if ($update) {
                 $this->session->set_flashdata(
@@ -137,7 +104,7 @@ class Pengguna extends CI_Controller
 							</button>
 						</div>'
                 );
-                redirect('Pengguna');
+                redirect('Admin/penanggulangan');
             } else {
                 $this->session->set_flashdata(
                     'error_msg',
@@ -149,14 +116,14 @@ class Pengguna extends CI_Controller
 							</button>
 						</div>'
                 );
-                redirect('Pengguna');
+                redirect('Admin/penanggulangan');
             }
         }
     }
 
     public function delete($id)
     {
-        $delete = $this->ModelPengguna->delete($id);
+        $delete = $this->ModelPenanggulangan->delete($id);
         if ($delete) {
             $this->session->set_flashdata(
                 'success_msg',
@@ -168,7 +135,7 @@ class Pengguna extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('Pengguna');
+            redirect('Admin/penanggulangan');
         } else {
             $this->session->set_flashdata(
                 'error_msg',
@@ -180,7 +147,7 @@ class Pengguna extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('Pengguna');
+            redirect('Admin/penanggulangan');
         }
     }
 }

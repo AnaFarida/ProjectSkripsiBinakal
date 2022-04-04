@@ -6,7 +6,6 @@
              class="brand-image img-circle elevation-3" style="opacity: .8">
          <span class="brand-text font-weight-light">SIGDBD_Binakal</span>
      </a>
-     <?= $this->session->flashdata('pesan'); ?>
 
      <!-- Sidebar -->
      <div class="sidebar">
@@ -65,18 +64,10 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="pages/kanban.html" class="nav-link">
+                     <a href="<?= base_url(); ?>admin/penanggulangan" class="nav-link">
                          <i class="nav-icon fas fa-edit"></i>
                          <p>
                              Penanggulangan & Pencegahan
-                         </p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="pages/kanban.html" class="nav-link">
-                         <i class="nav-icon fas fa-edit"></i>
-                         <p>
-                             My Profile
                          </p>
                      </a>
                  </li>

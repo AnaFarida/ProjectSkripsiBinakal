@@ -6,7 +6,6 @@
             <img class="animation__shake" src="<?= base_url(); ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo"
                 height="60" width="60">
         </div>
-        <?= $this->session->flashdata('pesan'); ?>
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -28,7 +27,7 @@
 
                 <!-- Messages Dropdown Menu -->
                 <li>
-                    <a href="<?= base_url(); ?>Admin/Login/Logout" data-toggle="modal" data-target="#keluar">
+                    <a href="<?= base_url(); ?>Admin/Login/Logout">
                         <i class="fas fa-sign-out-alt"></i>
                         Keluar
                     </a>

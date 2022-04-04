@@ -124,7 +124,7 @@
                             </table>
 
                             <legend
-                                style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #f55858; color: #ffffff;">
+                                style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                                 <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Pemetaan
                                 </p>
                             </legend>
@@ -173,7 +173,7 @@
 
                             var vector_desa = L.layerGroup();
 
-                            <?php foreach ($data_desa as $data) {
+                            <?php foreach ($data_des as $data) {
                 $warna = ['#e20200', '#f9eb00', '#03cc3d'];
                 $warnaIndex = 0;
                 foreach ($sort as $index => $s) {
@@ -217,7 +217,7 @@
                                 layers: [peta1, vector_desa],
                             });
 
-                            <?php foreach ($data_desa as $data) { ?>
+                            <?php foreach ($data_des as $data) { ?>
                             var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
                                 icon: blueIcon
                             }).bindPopup(

@@ -15,6 +15,8 @@ class DataDBD extends CI_Controller
        
         $data['title'] = "Dashboard Admin";
         $data['datadbd'] = $this->ModelData->getdata()->result();
+        $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
        
        //var_dump($data);
         $this->db->get('datadbd')->result();
@@ -93,7 +95,7 @@ class DataDBD extends CI_Controller
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);
-            $this->load->view('dashboard/DataDBD/edit_data', $data);
+            $this->load->view('dashboard/dataset/edit_data', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
             $update = $this->ModelData->update(array(

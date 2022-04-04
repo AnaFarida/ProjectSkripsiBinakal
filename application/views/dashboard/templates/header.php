@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-    <?= $this->session->flashdata('pesan'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $judul ;?></title>
+    <title><?= $title ;?></title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
