@@ -30,7 +30,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.0/leaflet.awesome-markers.min.js">
     </script>
-    <link rel="stylesheet" href="<?= base_url('') ?>assets/assets/css/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/assets/css/leaflet.awesome-markers.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />

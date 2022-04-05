@@ -30,4 +30,10 @@ class Home extends CI_Controller {
                 $this->load->view('home/templates/footer');
         }
 
+        public function Tes()
+        {
+                $this->load->view('home/test');
+        }
+
+
 }
