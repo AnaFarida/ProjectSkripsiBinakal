@@ -175,6 +175,34 @@
 
                             var vector_desa = L.layerGroup();
 
+                            <?php foreach ($data_desa as $data) {
+                                $warna = ['#e20200', '#f9eb00', '#03cc3d'];
+                                $warnaIndex = 0;
+                                foreach ($sort as $index => $s) {
+                                    if (in_array($data['nama_desa'], $s)) {
+                                        if ((count($sort) == 1 && $index == 0) || (count($sort) == 2 && $index == 1)) {
+                                            $warnaIndex = 2;
+                                        }
+                                        // } else {
+                                        //     $warnaIndex = $index;
+                                        // }
+                                    }
+                                }
+                            ?>
+                            L.geoJSON(<?= $data['geojson'] ?>, {
+                                style: {
+                                    color: 'black',
+                                    fillColor: '<?= $warna[$warnaIndex] ?>',
+                                    fillOpacity: 1.0,
+                                    weight: 1,
+                                    pointToLayer: function(feature, latlng) {
+                                        console.log(latlng);
+                                        return L.circleMarker(latlng, geojsonMarkerOptions);
+                                    }
+                                },
+                            }).addTo(vector_desa);
+                            <?php } ?>
+
                             var desa = L.layerGroup();
 
                             var blueIcon = new L.Icon({
@@ -186,10 +214,24 @@
                             });
 
                             var map = L.map("map", {
-                                center: [-7.913890374682106, 113.73443265411667],
-                                zoom: 12,
+                                center: [-7.90808752623913, 113.73545303305184],
+                                zoom: 11,
                                 layers: [mymap, vector_desa],
                             });
+                            <?php foreach ($data_des as $data) { ?>
+                            var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
+                                icon: blueIcon
+                            }).bindPopup(
+                                '<b class="text-sm"><?= $data['nama_desa'] ?></b><br><span>Jumlah Penderita : <?= $data['jml_penderita'] ?>, Jumlah Meninggal : <?= $data['jml_meninggal'] ?></span>'
+                            ).addTo(map);
+                            <?php } ?>
+
+                            var baseMaps = {
+                                "Map": mymap,
+                            };
+
+                            L.control.layers(baseMaps).addTo(map);
+
 
                             var legend = L.control({
                                 position: 'bottomright'

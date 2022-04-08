@@ -10,7 +10,7 @@ class ModelKmeans extends CI_Model
 
     // GET DATA dari Model
     function getAll()   {
-        return $this->db->query("SELECT * FROM datadbd")->result_array();
+        return $this->db->query("SELECT desa.*, datadbd.* FROM desa JOIN datadbd ON desa.id_desa = datadbd.id_desa")->result_array();
     }
     function getDesa()   {
         return $this->db->query("SELECT * FROM desa")->result_array();
