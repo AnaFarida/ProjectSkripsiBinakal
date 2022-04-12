@@ -157,7 +157,7 @@
                                 }
                             </style>
                             <script>
-                                // var mymap = L.map("mapid").setView([-7.913890374682106, 113.73443265411667], 13);
+                                // Link map dari leaflet dan token aksesnya
                                 var mymap = L.tileLayer(
                                     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
                                         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -168,6 +168,7 @@
 
                                 var vector_desa = L.layerGroup();
 
+                                // Tempat ngatur warna untuk geojson per-desa di mapnya
                                 <?php foreach ($data_desa as $data) {
                                     $warna = ['#e20200', '#f9eb00', '#03cc3d'];
                                     $warnaIndex = 0;
@@ -181,6 +182,7 @@
                                         }
                                     }
                                 ?>
+                                // Tempat ngeload data geojson dari db, serta memberikan warna pada geojson dari variabel warna diatas
                                     L.geoJSON(<?= $data['geojson'] ?>, {
                                         style: {
                                             color: 'black',
@@ -197,6 +199,7 @@
 
                                 var desa = L.layerGroup();
 
+                                // Tempat memberikan pin pada maps 
                                 var blueIcon = new L.Icon({
                                     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
                                     iconSize: [25, 41],
@@ -205,11 +208,14 @@
                                     shadowSize: [41, 41]
                                 });
 
+                                // Tempat setting map default awal pertama kali diload
                                 var map = L.map("map", {
                                     center: [-7.90808752623913, 113.73545303305184],
                                     zoom: 11,
                                     layers: [mymap, vector_desa],
                                 });
+
+                                // Tempat mengatur dan memberikan tooltips (popup) ketika pin maps di klik
                                 <?php foreach ($data_des as $data) { ?>
                                     var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
                                         icon: blueIcon
@@ -224,7 +230,7 @@
 
                                 L.control.layers(baseMaps).addTo(map);
 
-
+                                // Tempat memberikan legend (keterangan) pada maps yg berada di pojok kanan bawah itu 
                                 var legend = L.control({
                                     position: 'bottomright'
                                 });
