@@ -44,7 +44,12 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-15">
+
+                                    <?php if (isset($_SESSION['nama'])) { ?>
+                                    <a href="<?= base_url(); ?>Dashboard" class="btn header-btn"> Dashboard</a>
+                                    <?php } else {?>
                                     <a href="<?= base_url(); ?>Admin/Login" class="btn header-btn">Login</a>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>

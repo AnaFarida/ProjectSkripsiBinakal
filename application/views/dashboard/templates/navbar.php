@@ -17,9 +17,6 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?= base_url(); ?>Home" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Kontak</a>
-                </li>
             </ul>
 
             <!-- Right navbar links -->

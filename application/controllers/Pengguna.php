@@ -19,14 +19,13 @@ class Pengguna extends CI_Controller
             $data['success_msg'] = $this->session->userdata('success_msg');
             $this->session->unset_userdata('success_msg');
         }
-        if ($this->session->userdata('error_msg')) {
-            $data['error_msg'] = $this->session->userdata('error_msg');
-            $this->session->unset_userdata('error_msg');
-        }
 
         $data['title'] = "Dashboard Admin";
         
-        $data['pengguna'] = $this->ModelPengguna->tampil_data()->result();
+        $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
+
+        $data['penggunaAll'] = $this->ModelPengguna->tampil_data()->result();
 
         $this->load->view('dashboard/templates/header', $data);
         $this->load->view('dashboard/templates/navbar', $data);
@@ -62,7 +61,6 @@ class Pengguna extends CI_Controller
                 'nama' => $this->input->post('nama'),
                 'email' => $this->input->post('email'),
                 'alamat' => $this->input->post('alamat'),
-                'image' => 'default.png',
                 'telepon' => $this->input->post('telepon'),
                 'password' => password_hash($this->input->post('password1'),
                 PASSWORD_DEFAULT),
@@ -109,9 +107,10 @@ class Pengguna extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
-            $data['pengguna'] = $this->ModelPengguna->tampil_data()->result();
+            $data['editpengguna'] = $this->ModelPengguna->tampil_data()->result();
             $data['detail']    = $this->ModelPengguna->detail($id);
-
+            $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+            $this->session->userdata('email')])->row_array();
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);

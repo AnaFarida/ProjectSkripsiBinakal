@@ -15,6 +15,9 @@ class ModelKmeans extends CI_Model
     function getDesa()   {
         return $this->db->query("SELECT * FROM desa")->result_array();
     }
+    function getPenanggulangan()   {
+        return $this->db->query("SELECT * FROM penanggulangan")->result_array();
+    }
 
     // GET DATA dari Model
     function getData()   {

@@ -56,6 +56,14 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="<?= base_url(); ?>assets/dist/js/demo.js"></script> -->
 <!-- Page specific script -->
+<script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="<?= base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+
 <script>
 $(function() {
     $("#example1").DataTable({
@@ -65,6 +73,88 @@ $(function() {
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 });
+</script>
+
+<!-- Page specific script -->
+<script>
+$(function() {
+    var ctx = document.getElementById('barChart');
+    var cData1 = JSON.parse(`<?php echo $barChart; ?>`);
+    console.log(cData1.nama_desa);
+    var barChartData = {
+        labels: [cData1.nama_desa],
+        datasets: [{
+                label: 'Penderita',
+                backgroundColor: 'rgba(60,141,188,0.9)',
+                borderColor: 'rgba(60,141,188,0.8)',
+                pointRadius: false,
+                pointColor: '#3b8bba',
+                pointStrokeColor: 'rgba(60,141,188,1)',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: 'rgba(60,141,188,1)',
+                data: [cData1.jml_penderita]
+            },
+            {
+                label: 'Meninggal',
+                backgroundColor: 'rgba(210, 214, 222, 1)',
+                borderColor: 'rgba(210, 214, 222, 1)',
+                pointRadius: false,
+                pointColor: 'rgba(210, 214, 222, 1)',
+                pointStrokeColor: '#c1c7d1',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: 'rgba(220,220,220,1)',
+                data: [cData1.jml_meninggal]
+            },
+        ]
+    }
+
+    var barChartOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    display: false,
+                }
+            }]
+        }
+    }
+
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = $.extend(true, {}, barChartData)
+    var temp0 = barChartData.datasets[0]
+    var temp1 = barChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetFill: false
+    }
+
+    new Chart(barChartCanvas, {
+        type: 'bar',
+        data: barChartData,
+        options: barChartOptions
+    })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+})
 </script>
 </body>
 

@@ -8,6 +8,8 @@ class Hasil extends CI_Controller
 		parent::__construct();
 		// Load data model
 		$this->load->model('ModelKmeans');
+        $this->load->model('ModelPenanggulangan');
+
 	}
 
 	public function index()
@@ -74,6 +76,8 @@ class Hasil extends CI_Controller
 		$hasil['short_cluster'] = $short_cluster;
 		$hasil['index_arr'] = $index_arr;
 		$hasil['data_des'] = $this->ModelKmeans->getRel();
+		$hasil['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
+
 
 
         $this->load->view('home/templates/header', $data);
@@ -186,4 +190,6 @@ class Hasil extends CI_Controller
 		}
 		return $centroid_baru;
 	}
+
+	
 }

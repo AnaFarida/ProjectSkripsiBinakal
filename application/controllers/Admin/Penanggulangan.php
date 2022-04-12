@@ -13,6 +13,12 @@ class Penanggulangan extends CI_Controller
     public function index()
     {
         $data = array();
+        //Flashdata
+        if ($this->session->userdata('success_msg')) {
+            $data['success_msg'] = $this->session->userdata('success_msg');
+            $this->session->unset_userdata('success_msg');
+        }
+
 
         $data['title'] = "Dashboard Admin";
         $data['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
@@ -28,7 +34,7 @@ class Penanggulangan extends CI_Controller
 
     public function tambah()
     {
-        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim|max_length[100]');
+        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
@@ -76,10 +82,12 @@ class Penanggulangan extends CI_Controller
 
     public function update($id = null)
     {
-        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim|max_length[100]');
+        $this->form_validation->set_rules('penanggulangan', 'Penanggulangan', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
+            $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+            $this->session->userdata('email')])->row_array();
             $data['penanggulangan'] = $this->ModelPenanggulangan->tampil_data()->result();
             $data['detail']    = $this->ModelPenanggulangan->detail($id);
 
@@ -135,7 +143,7 @@ class Penanggulangan extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('Admin/penanggulangan');
+            redirect('Admin/Penanggulangan');
         } else {
             $this->session->set_flashdata(
                 'error_msg',
@@ -147,7 +155,7 @@ class Penanggulangan extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('Admin/penanggulangan');
+            redirect('Admin/Penanggulangan');
         }
     }
 }

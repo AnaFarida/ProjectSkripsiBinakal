@@ -24,7 +24,7 @@ class DataDBD extends CI_Controller
         $this->load->view('dashboard/templates/header', $data);
         $this->load->view('dashboard/templates/navbar', $data);
         $this->load->view('dashboard/templates/sidebar', $data);
-        $this->load->view('dashboard/dataset/datadbd', $data);
+        $this->load->view('dashboard/dataset/dataDBD', $data);
         $this->load->view('dashboard/templates/footer');
 
 	}
@@ -39,6 +39,8 @@ class DataDBD extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
             $data['datadbd'] = $this->ModelData->tampil_data()->result();
+            $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
 
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
@@ -55,7 +57,7 @@ class DataDBD extends CI_Controller
 
             if ($this->ModelData->getdata($dataPost)) {
                 $this->session->set_flashdata(
-                    'success_msg',
+                    'message',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
                         <span class="alert-text"><strong>Selamat,</strong> Data berhasil ditambahkan !</span>
@@ -67,7 +69,7 @@ class DataDBD extends CI_Controller
                 redirect('DataDBD');
             } else {
                 $this->session->set_flashdata(
-                    'error_msg',
+                    'message',
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
                         <span class="alert-text"><strong>Maaf,</strong> Data gagal ditambahkan !</span>
@@ -81,7 +83,7 @@ class DataDBD extends CI_Controller
         }
     }
 
-    public function editdata($id = null)
+    public function editdata($id)
     {
         $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
         $this->form_validation->set_rules('jml_meninggal', 'jumlah meninggal', 'required|numeric');
@@ -89,7 +91,9 @@ class DataDBD extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
-            $data['datadbd'] = $this->ModelData->tampil_data()->result();
+            $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
+            $data['datadbd'] = $this->ModelData->getdata()->result();
             $data['detail'] = $this->ModelData->detail($id);
 
             $this->load->view('dashboard/templates/header', $data);
@@ -98,18 +102,17 @@ class DataDBD extends CI_Controller
             $this->load->view('dashboard/dataset/edit_data', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
+            $id_data = $this->input->post('id_data');
             $update = $this->ModelData->update(array(
-                'id_data'   => $this->input->post('id_data'),
-                'id_desa'   => $this->input->post('id_desa'),
                 'jml_penderita' => $this->input->post('jml_penderita'),
                 'jml_meninggal' => $this->input->post('jml_meninggal')
-            ), $id);
+            ), $id_data);
             if ($update) {
                 $this->session->set_flashdata(
-                    'success_msg',
+                    'message',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-                        <span class="alert-text"><strong>Selamat,</strong> Data berhasil ditambahkan !</span>
+                        <span class="alert-text"><strong>Selamat,</strong> Data berhasil diubah !</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -118,10 +121,10 @@ class DataDBD extends CI_Controller
                 redirect('DataDBD');
             } else {
                 $this->session->set_flashdata(
-                    'error_msg',
+                    'message',
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
-                        <span class="alert-text"><strong>Maaf,</strong> Data gagal ditambahkan !</span>
+                        <span class="alert-text"><strong>Maaf,</strong> Data gagal diubah !</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

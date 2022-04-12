@@ -11,7 +11,7 @@
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Edit Data Pengguna</h3>
+                <h3 class="card-title">Edit Data Penanggulangan dan Pencegahan</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="nama" class="form-control-label">Pencegahan & Penanggulangan</label>
+                                <label for="nama" class="form-control-label">Penanggulangan dan Pencegahan</label>
                                 <input type="hidden" name="id_pnglngan" id="id_pnglngan" class="form-control"
                                     placeholder="Masukkan nama ..." value="<?= $detail[0]->id_pnglngan; ?>">
                                 <input type="text" name="penanggulangan" id="penanggulangan" class="form-control"

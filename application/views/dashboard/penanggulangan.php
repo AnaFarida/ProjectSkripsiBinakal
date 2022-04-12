@@ -89,20 +89,20 @@
                         </tr>
                     </thead>
                     <?php $no = 1;
-          foreach ($penanggulangan as $user) : ?>
+          foreach ($penanggulangan as $datapng) : ?>
                     <tbody>
-                        <tr class="text-center">
+                        <tr>
                             <td> <?= $no++ ?> </td>
-                            <td> <?= $user->penanggulangan ?> </td>
+                            <td> <?= $datapng->penanggulangan ?> </td>
                             <td>
-                                <a href="<?= base_url('Admin/Penanggulangan/update/' . $user->id_pnglngan) ?>"
+                                <a href="<?= base_url('Admin/Penanggulangan/update/' . $datapng->id_pnglngan) ?>"
                                     type="button" class="btn btn-info btn-sm">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
                                 </a>
                                 <a href="" class="btn btn-danger btn-sm"
-                                    onclick="confirm_modal('<?= base_url('Admin/Penanggulangan/delete/' . $user->id_pnglngan) ?>')"
+                                    onclick="confirm_modal('<?= base_url('Admin/Penanggulangan/delete/' . $datapng->id_pnglngan) ?> ?>')"
                                     type="button" data-toggle="modal" data-target="#deleteModal">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
