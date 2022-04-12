@@ -189,6 +189,7 @@
                                         }
                                     }
                                 ?>
+                            // Tempat ngeload data geojson dari db, serta memberikan warna pada geojson dari variabel warna diatas
                             L.geoJSON(<?= $data['geojson'] ?>, {
                                 style: {
                                     color: 'black',
@@ -205,6 +206,7 @@
 
                             var desa = L.layerGroup();
 
+                            // Tempat memberikan pin pada maps 
                             var blueIcon = new L.Icon({
                                 iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
                                 iconSize: [25, 41],
@@ -213,13 +215,21 @@
                                 shadowSize: [41, 41]
                             });
 
-                            var greenIcon = new L.Icon({
-                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
-                                iconSize: [25, 41],
-                                iconAnchor: [12, 41],
-                                popupAnchor: [1, -34],
-                                shadowSize: [41, 41]
+                            // Tempat setting map default awal pertama kali diload
+                            var map = L.map("map", {
+                                center: [-7.90808752623913, 113.73545303305184],
+                                zoom: 11,
+                                layers: [mymap, vector_desa],
                             });
+
+                            // Tempat mengatur dan memberikan tooltips (popup) ketika pin maps di klik
+                            <?php foreach ($data_des as $data) { ?>
+                            var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
+                                icon: blueIcon
+                            }).bindPopup(
+                                '<b class="text-sm"><?= $data['nama_desa'] ?></b><br><span>Jumlah Penderita : <?= $data['jml_penderita'] ?>, Jumlah Meninggal : <?= $data['jml_meninggal'] ?></span>'
+                            ).addTo(map);
+                            <?php } ?>
 
                             var map = L.map("map", {
                                 center: [-7.90808752623913, 113.73545303305184],
@@ -237,9 +247,9 @@
                             var baseMaps = {
                                 "Map": mymap,
                             };
-
                             L.control.layers(baseMaps).addTo(map);
 
+                            // Tempat memberikan legend (keterangan) pada maps yg berada di pojok kanan bawah itu 
 
                             var legend = L.control({
                                 position: 'bottomright'
