@@ -82,7 +82,7 @@
                                         ?>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: center;">
+                                        <td style="t  ext-align: center;">
                                             <b><?php echo $i + 1; ?></b>
                                         </td>
                                         <td>
@@ -125,8 +125,10 @@
 
                             <legend
                                 style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
-                                <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Pemetaan
+                                <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">
+                                    Pemetaan
                                 </p>
+
                             </legend>
                             <div id="map"></div>
                             <style>
@@ -163,6 +165,7 @@
                                 opacity: 0.7;
                             }
                             </style>
+
                             <script>
                             // var mymap = L.map("mapid").setView([-7.913890374682106, 113.73443265411667], 13);
                             var mymap = L.tileLayer(
@@ -173,27 +176,40 @@
                                 });
 
 
+
                             var vector_desa = L.layerGroup();
 
-                            <?php foreach ($data_desa as $data) {
-                                    $warna = ['#e20200', '#f9eb00', '#03cc3d'];
-                                    $warnaIndex = 0;
-                                    // var_dump(count($sort));die;
-                                    foreach ($sort as $index => $s) {
-                                        if (in_array($data['nama_desa'], $s)) {
-                                            if ((count($sort) == 1 && $index == 0) || (count($sort) == 2 && $index == 1)) {
-                                                $warnaIndex = 2;
-                                            } else {
-                                                $warnaIndex = $index;
-                                            }
+
+                            <?php foreach ($data_desa as $keys => $data) {
+                                    $warnadesa = [];
+                                    foreach ($data_desa as $key => $value) {
+                                        // $warna = ['#e20200', '#f9eb00', '#03cc3d'];
+                                        // $warnaIndex = 0;
+    
+                                        if(in_array($value['nama_desa'], $sort[0])){
+                                            $warnaIndex = '#e20200';
                                         }
-                                    }
+                                        if(in_array($value['nama_desa'], $sort[1])){
+                                            $warnaIndex = '#f9eb00';
+                                        }
+    
+                                        if(in_array($value['nama_desa'], $sort[2])){
+                                            $warnaIndex = '#03cc3d';
+                                        }
+
+                                        $warnadesa[$value['nama_desa']] = $warnaIndex;
+
+                                }
                                 ?>
+
+                            console.log('<?= $data['nama_desa'] ?><?= $warnadesa[$data['nama_desa']] ?>')
+
+
                             // Tempat ngeload data geojson dari db, serta memberikan warna pada geojson dari variabel warna diatas
                             L.geoJSON(<?= $data['geojson'] ?>, {
                                 style: {
                                     color: 'black',
-                                    fillColor: '<?= $warna[$warnaIndex] ?>',
+                                    fillColor: '<?= $warnadesa[$data['nama_desa']] ?>',
                                     fillOpacity: 1.0,
                                     weight: 1,
                                     pointToLayer: function(feature, latlng) {

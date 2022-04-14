@@ -6,6 +6,7 @@ class Hasil extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		error_reporting(0);
 		// Load data model
 		$this->load->model('ModelKmeans');
         $this->load->model('ModelPenanggulangan');
