@@ -16,8 +16,10 @@ class Dashboard extends CI_Controller {
         $this->session->userdata('email')])->row_array();
         $data['total_desa'] = $this->ModelData->hitungJumlahdesa();
         $data['total_penderita'] = $this->ModelData->hitungJumlahPenderita();
+
         $data['total_meninggal'] = $this->ModelData->hitungJumlahMeninggal();
-        $querydata = $this->db->query("SELECT * FROM desa JOIN datadbd ON desa.id_desa = datadbd.id_desa")->result();
+
+        $querydata = $this->db->query("SELECT desa.*, datadbd.* FROM desa JOIN datadbd ON desa.id_desa = datadbd.id_desa")->result();
         if ($querydata != null) {
                 foreach ($querydata as $row) {
                         $data['nama_desa'][] = $row->nama_desa;

@@ -20,7 +20,7 @@ class Pengguna extends CI_Controller
             $this->session->unset_userdata('success_msg');
         }
 
-        $data['title'] = "Dashboard Admin";
+        $data['title'] = "Data Admin | Dashboard Admin";
         
         $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
         $this->session->userdata('email')])->row_array();
@@ -95,6 +95,50 @@ class Pengguna extends CI_Controller
             }
         }
     }
+
+    public function detail($id)
+	{
+        $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        
+		$data['penggunaAll'] = $this->ModelPengguna->detail($id);
+        
+        $data['title'] = "Detail Profile | Dashboard Admin";
+        
+		if (isset($_POST['aktif'])) {
+			$this->ModelPengguna->active($id);
+			$this->session->set_flashdata(
+				'success_msg',
+				'<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<span class="alert-icon"><i class="ni ni-check-bold"></i></span>
+					<span class="alert-text"><strong>Selamat,</strong> akun berhasil di Aktifkan !</span>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>'
+			);
+			redirect('Pengguna');
+		} elseif (isset($_POST['mati'])) {
+			$this->ModelPengguna->nonActive($id);
+			$this->session->set_flashdata(
+				'success_msg',
+				'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+					<span class="alert-text"><strong>Selamat,</strong> akun berhasil di Non - Aktifkan !</span>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>'
+			);
+			redirect('Pengguna/detail');
+		}
+        
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/navbar', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/pengguna/detailPengguna', $data);
+        $this->load->view('dashboard/templates/footer');
+	}
 
     public function update($id = null)
     {

@@ -59,7 +59,7 @@
                      <a href="<?= base_url(); ?>pengguna" class="nav-link">
                          <i class="nav-icon fas fa-list-ol"></i>
                          <p>
-                             Data Pengguna
+                             Data Admin
                          </p>
                      </a>
                  </li>

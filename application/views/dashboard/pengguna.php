@@ -11,10 +11,10 @@
                     <?php echo $error_msg; ?>
                     <?php } ?>
                     <?php } ?>
-                    <h2>Data Pengguna</h2>
+                    <h2>Data Admin</h2>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Tambah Data Pengguna
+                        Tambah Data Admin
                     </button>
 
                     <!-- Modal Hapus -->
@@ -107,7 +107,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Pengguna</h3>
+                <h3 class="card-title">Data Admin</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -117,21 +117,32 @@
                             <th> No </th>
                             <th> Nama </th>
                             <th> Email </th>
-                            <th> Alamat </th>
-                            <th> Nomor Telepon </th>
+                            <th> Status </th>
                             <th> Aksi </th>
                         </tr>
                     </thead>
-                    <?php $no = 1;
-          foreach ($penggunaAll as $user) : ?>
+                    <?php if (!empty($penggunaAll)) {
+                         $no = 1;
+                    foreach ($penggunaAll as $user) {?>
                     <tbody>
                         <tr class="text-center">
                             <td> <?= $no++ ?> </td>
                             <td> <?= $user->nama ?> </td>
                             <td> <?= $user->email ?> </td>
-                            <td> <?= $user->alamat ?> </td>
-                            <td> <?= $user->telepon ?> </td>
                             <td>
+                                <?php
+                                if ($user->is_active == 0) {
+                                    echo '<span class="badge badge-danger"> Tidak Aktif</span>';
+                                } elseif ($user->is_active == 1) {
+                                    echo '<span class="badge badge-success">Aktif</span>';
+                                }
+                                 ?>
+                            </td>
+                            <td>
+                                <a href="<?= base_url('Pengguna/detail/' . $user->id_nama) ?>"
+                                    class="btn btn-primary btn-sm" type="button">
+                                    <i class="fas fa-address-card"></i> Detail
+                                </a>
                                 <a href="<?= base_url('Pengguna/update/' . $user->id_nama) ?>" type="button"
                                     class="btn btn-info btn-sm">
                                     <i class="fas fa-pencil-alt">
@@ -145,8 +156,11 @@
                                 </a>
                             </td>
                         </tr>
+                        <?php 
+                        } ?>
+                        <?php } else { ?>
+                        <?php } ?>
                     </tbody>
-                    <?php endforeach ?>
                 </table>
             </div>
 

@@ -13,7 +13,7 @@ class DataDBD extends CI_Controller
     public function index()
 	{
        
-        $data['title'] = "Dashboard Admin";
+        $data['title'] = "Data DBD | Dashboard Admin";
         $data['datadbd'] = $this->ModelData->getdata()->result();
         $data['pengguna'] = $this->db->get_where('pengguna', ['email' => 
         $this->session->userdata('email')])->row_array();

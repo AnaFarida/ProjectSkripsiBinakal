@@ -44,7 +44,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <legend
+                        <!-- <legend
                             style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                             <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Centroid
                                 Akhir</p>
@@ -61,7 +61,7 @@
                         </div>
                         <?php }
                             }
-                        } ?>
+                        } ?> -->
                         <div class="card-body p-0">
                             <legend
                                 style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
@@ -114,9 +114,14 @@
                                                     echo implode($desa[$k]);
                                                     echo ", ";
                                                 }
-                                                $sort[] = $sortDesa; ?>
+                                                $sort[] = $sortDesa; 
+                                                
+                                                // var_dump($i)
+                                                ?>
                                         </td>
+
                                     </tr>
+
                                 </tbody>
                                 <?php $no++;
                                 } ?>
@@ -126,7 +131,7 @@
                             <legend
                                 style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                                 <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">
-                                    Pemetaan
+                                    Hasil Pemetaan
                                 </p>
 
                             </legend>
@@ -234,7 +239,7 @@
                             // Tempat setting map default awal pertama kali diload
                             var map = L.map("map", {
                                 center: [-7.90808752623913, 113.73545303305184],
-                                zoom: 11,
+                                zoom: 12,
                                 layers: [mymap, vector_desa],
                             });
 
@@ -247,18 +252,6 @@
                             ).addTo(map);
                             <?php } ?>
 
-                            var map = L.map("map", {
-                                center: [-7.90808752623913, 113.73545303305184],
-                                zoom: 11,
-                                layers: [mymap, vector_desa],
-                            });
-                            <?php foreach ($data_des as $data) { ?>
-                            var marker = L.marker([<?= $data['latitude'] ?>, <?= $data['longtitude'] ?>], {
-                                icon: blueIcon
-                            }).bindPopup(
-                                '<b class="text-sm"><?= $data['nama_desa'] ?></b><br><span>Jumlah Penderita : <?= $data['jml_penderita'] ?>, Jumlah Meninggal : <?= $data['jml_meninggal'] ?></span>'
-                            ).addTo(map);
-                            <?php } ?>
 
                             var baseMaps = {
                                 "Map": mymap,
@@ -273,12 +266,12 @@
 
                             legend.onAdd = function(map) {
                                 var div = L.DomUtil.create('div', 'info legend leaflet-control br {clear: both;}'),
-                                    grades = ['Dearah Endemis', 'Daerah Potensial', 'Daerah Bebas', ],
+                                    grades = ['Daerah Endemis', 'Daerah Potensial', 'Daerah Bebas', ],
                                     labels = [],
                                     from, to;
 
                                 labels.push(
-                                    '<i style="background:#e20200' + '"></i> Dearah Endemis',
+                                    '<i style="background:#e20200' + '"></i> Daerah Endemis',
                                     '<i style="background:#f9eb00' + '"></i> Daerah Potensial',
                                     '<i style="background:#03cc3d' + '"></i> Daerah Bebas',
                                 );
@@ -286,7 +279,6 @@
                                 div.innerHTML = labels.join('<br>');
                                 return div;
                             };
-
                             legend.addTo(map);
                             </script>
                         </div>

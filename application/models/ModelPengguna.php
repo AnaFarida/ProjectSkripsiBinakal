@@ -21,13 +21,13 @@ class ModelPengguna extends CI_Model{
     public function active($id)
     {
         $this->db->where('id_nama', $id);
-        $this->db->update('pengguna', ['is_active' => '1']);
+        $this->db->update('pengguna', ['status' => '1']);
     }
 
     public function nonActive($id)
     {
         $this->db->where('id_nama', $id);
-        $this->db->update('pengguna', ['is_active' => '0']);
+        $this->db->update('pengguna', ['status' => '0']);
     }
 
     public function delete($id)
