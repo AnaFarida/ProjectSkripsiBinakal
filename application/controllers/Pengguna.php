@@ -130,7 +130,7 @@ class Pengguna extends CI_Controller
 					</button>
 				</div>'
 			);
-			redirect('Pengguna/detail');
+			redirect('Pengguna');
 		}
         
         $this->load->view('dashboard/templates/header', $data);

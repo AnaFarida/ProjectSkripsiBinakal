@@ -82,13 +82,13 @@
                                         </div>
                                         <div class="form-group ">
                                             <label>Password</label>
-                                            <input type="text" name="password1" id="password1" class="form-control"
+                                            <input type="password" name="password1" id="password1" class="form-control"
                                                 placeholder="Masukkan password ...">
                                             <?= form_error('password1', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                         </div>
                                         <div class="form-group ">
                                             <label>Konfirmasi Password</label>
-                                            <input type="text" name="password2" id="password2" class="form-control"
+                                            <input type="password" name="password2" id="password2" class="form-control"
                                                 placeholder="Masukkan konfirmasi password ...">
                                             <?= form_error('password2', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                         </div>
