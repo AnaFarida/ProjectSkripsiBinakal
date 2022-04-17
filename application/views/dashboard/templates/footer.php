@@ -53,16 +53,8 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?= base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="<?= base_url(); ?>assets/dist/js/demo.js"></script> -->
-<!-- Page specific script -->
-<script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="<?= base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/Chart.js"></script>
 
 
@@ -72,7 +64,7 @@ $(function() {
         "responsive": true,
         "lengthChange": false,
         "autoWidth": true,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": ["csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 });
 </script>

@@ -25,23 +25,10 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-4 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3><?php echo $total_desa ?></h3>
-
-                            <p>Jumlah Desa</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                    </div>
-                </div>
                 <!-- ./col -->
                 <div class="col-lg-4 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-primary">
                         <div class="inner">
                             <h3><?php echo $total_penderita ?></h3>
 

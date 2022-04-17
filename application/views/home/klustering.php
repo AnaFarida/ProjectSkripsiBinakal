@@ -20,11 +20,6 @@
                     </div>
                 </div>
             </form>
-            <div class="btn-box">
-                <a href="#data">
-                    lihat Data
-                </a>
-            </div>
         </div>
     </div>
 </section>

@@ -12,10 +12,10 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('home/templates/header');
-        $this->load->view('home/templates/navbar');
-        $this->load->view('home/index');
-        $this->load->view('home/templates/footer');
+                $this->load->view('home/templates/header');
+                $this->load->view('home/templates/navbar');
+                $this->load->view('home/index');
+                $this->load->view('home/templates/footer');
 
 	}
 
@@ -30,10 +30,6 @@ class Home extends CI_Controller {
                 $this->load->view('home/templates/footer');
         }
 
-        public function Tes()
-        {
-                $this->load->view('home/test');
-        }
 
 
 }
