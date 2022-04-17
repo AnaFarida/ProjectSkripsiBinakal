@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
         {
             parent::__construct();
             $this->load->model('ModelData');
-            
+            cek_session();
         }
 
 	public function index(){
