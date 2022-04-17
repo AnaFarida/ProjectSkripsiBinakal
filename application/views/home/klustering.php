@@ -6,7 +6,7 @@
                     Klustering DBD
                 </h2>
                 <p>
-                    Klik Cluster untuk mengetahui hasil klustering DBD di Puskesmas Binakal
+                    Klik Cluster untuk mengetahui hasil klustering penyebaran DBD di Puskesmas Binakal
                 </p>
             </div>
             <br>

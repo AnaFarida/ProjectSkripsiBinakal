@@ -286,7 +286,7 @@
                         <div id="accordion">
                             <div class="card card-primary">
                                 <div class="card-header"
-                                    style="font-weight: bold; background-color: #17a2b8; color: #17a2b8;">
+                                    style="font-weight: bold; background-color: #5AAC4E; color: #5AAC4E;">
                                     <h4 class="card-title w-100">
                                         <a class="text-white" data-toggle="collapse" href="#collapseOne">
                                             Penanggulagan & Pencegahan &DBD
