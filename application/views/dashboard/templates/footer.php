@@ -54,7 +54,6 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 <!-- ChartJS -->
-<script src="<?= base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
 <script src="<?= base_url(); ?>assets/js/Chart.js"></script>
 
 
