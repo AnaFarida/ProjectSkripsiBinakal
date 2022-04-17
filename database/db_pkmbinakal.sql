@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Apr 2022 pada 04.35
+-- Waktu pembuatan: 18 Apr 2022 pada 00.53
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -42,11 +42,11 @@ INSERT INTO `datadbd` (`id_data`, `id_desa`, `jml_penderita`, `jml_meninggal`) V
 (1, 9, 0, 0),
 (2, 10, 0, 0),
 (3, 11, 1, 0),
-(4, 12, 2, 0),
-(5, 13, 7, 0),
+(4, 12, 1, 0),
+(5, 13, 4, 0),
 (6, 14, 1, 0),
-(7, 15, 10, 0),
-(8, 16, 8, 0);
+(7, 15, 8, 0),
+(8, 16, 5, 0);
 
 -- --------------------------------------------------------
 
