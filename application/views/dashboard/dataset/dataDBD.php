@@ -12,10 +12,16 @@
                     <?php } ?>
                     <?php } ?>
                     <h2>Data datadbd</h2>
-                    <!-- Button trigger modal -->
+                    <?php if ($count < 8) { ?>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Tambah Data DBD
                     </button>
+                    <?php } else { ?>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        disabled>
+                        Tambah Data DBD
+                    </button>
+                    <?php }  ?>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDesa">
                         Tambah Desa

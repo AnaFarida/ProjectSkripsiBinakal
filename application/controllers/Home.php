@@ -12,7 +12,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-                $this->load->view('home/templates/header');
+                $data['title'] = 'Tentang Puskesmas | SIG_DBD';
+
+                $this->load->view('home/templates/header', $data);
                 $this->load->view('home/templates/navbar');
                 $this->load->view('home/index');
                 $this->load->view('home/templates/footer');
@@ -22,11 +24,22 @@ class Home extends CI_Controller {
         public function KMeans()
         {
                 $data['datadbd'] = $this->ModelData->getdata()->result();
-                //$data['tahun'] = $this->ModelData->getTahunFilter();
+                $data['title'] = 'KMeans Clustering | SIG_DBD';
 
                 $this->load->view('home/templates/header', $data);
                 $this->load->view('home/templates/navbar');
                 $this->load->view('home/klustering', $data);
+                $this->load->view('home/templates/footer');
+        }
+
+        public function AboutDBD()
+        {
+                $data['datadbd'] = $this->ModelData->getdata()->result();
+                $data['title'] = 'Tentang DBD | SIG_DBD';
+
+                $this->load->view('home/templates/header', $data);
+                $this->load->view('home/templates/navbar');
+                $this->load->view('home/aboutDbd', $data);
                 $this->load->view('home/templates/footer');
         }
 

@@ -12,7 +12,9 @@
                                 &copy;<script>
                                 document.write(new Date().getFullYear());
                                 </script> SIG_DBD | Puskesmas Binakal <i class="fa fa-heart" aria-hidden="true"></i>
-                                by Colorlib</a>
+                                by Colorlib
+                                <br>
+                                <a>Author : Ana Farida </a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>

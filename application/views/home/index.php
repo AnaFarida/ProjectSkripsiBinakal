@@ -10,13 +10,16 @@
                             <div class="hero-wrapper">
                                 <!-- Video icon -->
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Sistem Pemetaan Demam Berdarah Dengue
-                                        Puskemas Binakal
+                                    <h1>SIGDBD-Puskemas Binakal
                                     </h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s"> Sistem ini dibuat untuk memberikan
-                                        kemudahan dalam<br>
-                                        pemetaan Demam Berdarah
-                                        Dengue Puskemas Binakal</p>
+                                    <p data-animation="fadeInUp" data-delay=".6s" style="text-align: justify;"> Sistem
+                                        ini dibuat untuk memberikan
+                                        kemudahan dalam pemetaan Demam Berdarah
+                                        Dengue Puskemas Binakal <b style="font-size: medium;">Klik Mulai Clustering atau
+                                            Klustering DBD
+                                            Untuk mengetahui penyebaran
+                                            DBD!</b></p>
+
                                     <a href="<?= base_url(); ?>Home/KMeans" class="btn" data-animation="fadeInLeft"
                                         data-delay=".3s">Mulai Clustering</a>
                                 </div>
@@ -45,7 +48,8 @@
                         <div class="section-tittle mb-35">
                             <h2>Tentang Puskesmas Binakal</h2>
                         </div>
-                        <p class="pera-bottom mb-30"> Puskesmas Binakal merupakan Unit Pelaksana Teknis Dinas Kesehatan
+                        <p class="pera-bottom mb-30" style="text-align: justify;"> Puskesmas Binakal merupakan Unit
+                            Pelaksana Teknis Dinas Kesehatan
                             Kabupaten
                             Bondowoso yang mempunyai wilayah kerja 1 (satu) Kecamatan, yaitu Kecamatan Binakal.
                             Puskesmas Binakal melaksanakan pembangunan di bidang kesehatan secara mandiri dan

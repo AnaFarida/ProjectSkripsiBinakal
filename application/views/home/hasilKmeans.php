@@ -24,26 +24,28 @@
         <div class="container">
             <div class="wants-wrapper w-padding2">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col-xl-7 col-lg-9 col-md-8">
+                    <div class="col-xl-12 col-lg-9 col-md-8">
                         <legend
                             style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                             <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Parameter
                             </p>
                         </legend>
-                        <table class="mt-4 mb-4">
-                            <tbody>
-                                <tr>
-                                    <td>Jumlah Cluster</td>
-                                    <td class="pr-2 pl-2">:</td>
-                                    <td><?= $jumlah_centroid; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Iterasi</td>
-                                    <td class="pr-2 pl-2">:</td>
-                                    <td><?= $jumlah_iterasi; ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <font size="2">
+                            <table class="mt-4 mb-4">
+                                <tbody>
+                                    <tr>
+                                        <td>Jumlah Cluster</td>
+                                        <td class="pr-2 pl-2">:</td>
+                                        <td><?= $jumlah_centroid; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jumlah Iterasi</td>
+                                        <td class="pr-2 pl-2">:</td>
+                                        <td><?= $jumlah_iterasi; ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </font>
                         <!-- <legend
                             style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                             <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Centroid
@@ -68,16 +70,17 @@
                                 <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Hasil
                                 </p>
                             </legend>
-                            <table class="table table-striped">
-                                <thead
-                                    style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color:  #5AAC4E; color:  #5AAC4E;"
-                                    class="text-white">
-                                    <tr>
-                                        <th style="width: 10px">Cluster</th>
-                                        <th>Daerah Hasil Cluster</th>
-                                    </tr>
-                                </thead>
-                                <!-- <?php for ($i = 0; $i < $jumlah_centroid; $i++) {
+                            <font size="2">
+                                <table class="table table-striped">
+                                    <thead
+                                        style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color:  #5AAC4E; color:  #5AAC4E;"
+                                        class="text-white">
+                                        <tr>
+                                            <th style="width: 10px">Cluster</th>
+                                            <th>Daerah Hasil Cluster</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <?php for ($i = 0; $i < $jumlah_centroid; $i++) {
 
                                         ?>
                                 <tbody>
@@ -94,18 +97,18 @@
                                                 } ?></b>
                                         </td>
                                     </tr> -->
-                                <!-- </tbody> -->
-                                <!-- <?php } ?> -->
+                                    <!-- </tbody> -->
+                                    <!-- <?php } ?> -->
 
-                                <?php $no = 1;
+                                    <?php $no = 1;
                                 $sort = [];
                                 foreach ($index_arr as $key => $value) { ?>
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align:center;">
-                                            <b><?= $no; ?></b>
-                                        </td>
-                                        <td><?php
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <b><?= $no; ?></b>
+                                            </td>
+                                            <td><?php
                                                 $i = $value - 1;
                                                 $sortDesa = [];
                                                 for ($j = 0; $j < count($multi_cluster[$i]); $j++) {
@@ -118,16 +121,16 @@
                                                 
                                                 // var_dump($i)
                                                 ?>
-                                        </td>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
 
-                                </tbody>
-                                <?php $no++;
+                                    </tbody>
+                                    <?php $no++;
                                 } ?>
 
-                            </table>
-
+                                </table>
+                            </font>
                             <legend
                                 style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                                 <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">
@@ -271,9 +274,9 @@
                                     from, to;
 
                                 labels.push(
-                                    '<i style="background:#e20200' + '"></i> Daerah Endemis',
-                                    '<i style="background:#f9eb00' + '"></i> Daerah Potensial',
-                                    '<i style="background:#03cc3d' + '"></i> Daerah Bebas',
+                                    '<i style="background:#e20200' + '"></i> Daerah Endemis (Cluster 1)',
+                                    '<i style="background:#f9eb00' + '"></i> Daerah Potensial (Cluster 2)',
+                                    '<i style="background:#03cc3d' + '"></i> Daerah Bebas (Cluster 3)',
                                 );
 
                                 div.innerHTML = labels.join('<br>');
@@ -289,25 +292,26 @@
                                     style="font-weight: bold; background-color: #5AAC4E; color: #5AAC4E;">
                                     <h4 class="card-title w-100">
                                         <a class="text-white" data-toggle="collapse" href="#collapseOne">
-                                            Penanggulagan & Pencegahan &DBD
+                                            Penanggulagan & Pencegahan DBD
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                                     <div class="card-body">
-                                        <table class="mt-4 mb-4">
+                                        <font size="2">
+                                            <table class="mt-4 mb-4">
+                                                <tbody>
+                                                    <?php $no = 1; foreach ($penanggulangan as $data) : ?>
+                                                    <tr>
+                                                        <td><?= $no++ ?></td>
+                                                        <td>.</td>
+                                                        <td align="justify"><?= $data->penanggulangan ?></td>
+                                                    </tr>
 
-                                            <tbody>
-                                                <?php $no = 1; foreach ($penanggulangan as $data) : ?>
-                                                <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td class="pr-2 pl-2">.</td>
-                                                    <td><?= $data->penanggulangan ?></td>
-                                                </tr>
-
-                                                <?php endforeach ?>
-                                            </tbody>
-                                        </table>
+                                                    <?php endforeach ?>
+                                                </tbody>
+                                            </table>
+                                        </font>
                                     </div>
                                 </div>
                             </div>

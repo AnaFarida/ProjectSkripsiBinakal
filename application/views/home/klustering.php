@@ -6,7 +6,7 @@
                     Klustering DBD
                 </h2>
                 <p>
-                    Klik Cluster untuk mengetahui hasil klustering penyebaran DBD di Puskesmas Binakal
+                    Klik Cluster untuk mengetahui hasil penyebaran DBD di Puskesmas Binakal
                 </p>
             </div>
             <br>
@@ -33,29 +33,30 @@
                     Data DDB Puskesmas Binakal
                 </h2>
                 <br>
-                <table id="example1" class="table table-bordered table-striped">
+                <font size="2">
+                    <table id="example1" class="table table-bordered table-striped">
 
-                    <thead>
-                        <tr class="text-center">
-                            <th> No </th>
-                            <th> Desa </th>
-                            <th> Jumlah Penderita </th>
-                            <th> Jumlah Meninggal </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1;
+                        <thead>
+                            <tr class="text-center">
+                                <th> No </th>
+                                <th> Desa </th>
+                                <th> Jumlah Penderita </th>
+                                <th> Jumlah Meninggal </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
                              foreach ($datadbd as $datadb) : ?>
-                        <tr class="text-center">
-                            <td> <?= $no++ ?> </td>
-                            <td> <?= $datadb->nama_desa ?> </td>
-                            <td> <?= $datadb->jml_penderita ?> </td>
-                            <td> <?= $datadb->jml_meninggal ?> </td>
-                        </tr>
-                        <?php endforeach ?>
-                    </tbody>
-
-                </table>
+                            <tr class="text-center">
+                                <td> <?= $no++ ?> </td>
+                                <td> <?= $datadb->nama_desa ?> </td>
+                                <td> <?= $datadb->jml_penderita ?> </td>
+                                <td> <?= $datadb->jml_meninggal ?> </td>
+                            </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </font>
             </div>
         </div>
     </div>
