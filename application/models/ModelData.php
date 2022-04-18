@@ -32,6 +32,11 @@ class ModelData extends CI_Model
         return $this->db->insert('datadbd', $data);
     }
 
+    public function tambah($data = array())
+    {
+        return $this->db->insert('desa', $data);
+    }
+
     function getdatabyid($id)
     {
         $query = $this->db->query("SELECT * FROM datadbd WHERE id_data = '$id' ");

@@ -63,7 +63,7 @@ $(function() {
         "responsive": true,
         "lengthChange": false,
         "autoWidth": true,
-        "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+        // "buttons": ["csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 });
 </script>

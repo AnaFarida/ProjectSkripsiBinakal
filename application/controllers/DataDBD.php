@@ -98,6 +98,50 @@ class DataDBD extends CI_Controller
         }
     }
 
+    public function tambahdesa()
+    {
+        $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
+        $this->form_validation->set_rules('geojson', 'geojson', 'required|trim');
+        $this->form_validation->set_rules('latitude', 'latitude', 'required|trim');
+        $this->form_validation->set_rules('longtitude', 'longtitude', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            redirect('DataDBD');
+        } else {
+            $dataPost = array(
+                'nama_desa' => $this->input->post('nama_desa'),
+                'geojson' => $this->input->post('geojson'),
+                'latitude' => $this->input->post('latitude'),
+                'longtitude' => $this->input->post('longtitude'),
+            );
+            if ($this->ModelData->tambah($dataPost)) {
+                $this->session->set_flashdata(
+                    'success_msg',
+                    '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
+                        <span class="alert-text"><strong>Selamat,</strong> Data berhasil ditambahkan !</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>'
+                );
+                redirect('DataDBD');
+            } else {
+                $this->session->set_flashdata(
+                    'error_msg',
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="alert-icon"><i class="ni ni-check-bold"></i></span>
+                        <span class="alert-text"><strong>Maaf,</strong> Data gagal ditambahkan !</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>'
+                );
+                redirect('DataDBD');
+            }
+        }
+    }
+
     public function editdata($id)
     {
         $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
