@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-                $data['title'] = 'Tentang Puskesmas | SIG_DBD';
+                $data['title'] = 'Home | SIG_DBD';
 
                 $this->load->view('home/templates/header', $data);
                 $this->load->view('home/templates/navbar');
