@@ -31,6 +31,7 @@ class DataDBD extends CI_Controller
         $data['pengguna'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['count']		= $this->ModelData->count();
+        $data['countdesa']		= $this->ModelData->countdesa();
 
         // var_dump($data);
         // $this->db->get('datadbd')->result();

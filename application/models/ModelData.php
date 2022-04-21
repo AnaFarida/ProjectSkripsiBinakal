@@ -99,6 +99,19 @@ class ModelData extends CI_Model
         }
     }
 
+    public function countdesa()
+    {
+        $query = $this->db->get("desa");
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    // $query = $this->db->query("SELECT COUNT(nama_desa) FROM desa;");
+    //     return $query->result();
+
     public function hitungJumlahPenderita()
     {
         $this->db->select_sum('jml_penderita');
