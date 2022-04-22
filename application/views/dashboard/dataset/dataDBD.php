@@ -12,19 +12,22 @@
                     <?php } ?>
                     <?php } ?>
                     <h2>Data datadbd</h2>
-                    <?php if ($count < 8) { ?>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <?php if (count($datadbd) >= count($desa)) { ?>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        disabled>
                         Tambah Data DBD
                     </button>
                     <?php } else { ?>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        disabled>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Tambah Data DBD
                     </button>
                     <?php }  ?>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDesa">
                         Tambah Desa
+                    </button>
+                    <button type="button" class="btn btn-info" data-target="#modalDesa">
+                        Lihat Data Desa
                     </button>
                     <!-- Modal Hapus -->
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"

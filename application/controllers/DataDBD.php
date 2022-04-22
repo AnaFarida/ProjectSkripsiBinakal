@@ -33,7 +33,8 @@ class DataDBD extends CI_Controller
         $data['count']		= $this->ModelData->count();
         $data['countdesa']		= $this->ModelData->countdesa();
 
-        // var_dump($data);
+        // var_dump(count($data['desa']));
+        // die;
         // $this->db->get('datadbd')->result();
 
         $this->load->view('dashboard/templates/header', $data);
@@ -51,17 +52,6 @@ class DataDBD extends CI_Controller
         $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            // $data['title'] = "Dashboard Admin";
-            // $data['datadbd'] = $this->ModelData->getdata()->result();
-            // $data['dbd'] = $this->ModelData->tampil_data()->result();
-            // $data['pengguna'] = $this->db->get_where('pengguna', ['email' =>
-            // $this->session->userdata('email')])->row_array();
-
-            // $this->load->view('dashboard/templates/header', $data);
-            // $this->load->view('dashboard/templates/navbar', $data);
-            // $this->load->view('dashboard/templates/sidebar', $data);
-            // $this->load->view('dashboard/dataset/dataDBD', $data);
-            // $this->load->view('dashboard/templates/footer');
             redirect('DataDBD');
         } else {
             $dataPost = array(
@@ -107,7 +97,16 @@ class DataDBD extends CI_Controller
         $this->form_validation->set_rules('longtitude', 'longtitude', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            redirect('DataDBD');
+            $data['title'] = "Dashboard Admin";
+            $data['pengguna'] = $this->db->get_where('pengguna', ['email' =>
+            $this->session->userdata('email')])->row_array();
+            $data['datadbd'] = $this->ModelData->getdata()->result();
+
+            $this->load->view('dashboard/templates/header', $data);
+            $this->load->view('dashboard/templates/navbar', $data);
+            $this->load->view('dashboard/templates/sidebar', $data);
+            $this->load->view('dashboard/dataset/edit_data', $data);
+            $this->load->view('dashboard/templates/footer');
         } else {
             $dataPost = array(
                 'nama_desa' => $this->input->post('nama_desa'),
