@@ -17,6 +17,8 @@ class ModelData extends CI_Model
         return $this->db->get();
     }
 
+   
+
     public function getdataset()
     {
         $query = $this->db->query("SELECT * FROM datadbd ORDER BY jml_penderita ASC");
@@ -30,11 +32,6 @@ class ModelData extends CI_Model
     public function create($data = array())
     {
         return $this->db->insert('datadbd', $data);
-    }
-
-    public function tambah($data = array())
-    {
-        return $this->db->insert('desa', $data);
     }
 
     function getdatabyid($id)
@@ -67,16 +64,21 @@ class ModelData extends CI_Model
         return $query->row();
     }
 
+
     public function delete($id)
     {
         $this->db->where("id_data", $id);
         return $this->db->delete("datadbd");
     }
 
+   
+
     function update($data, $id_data)
     {
         return $this->db->update('datadbd', $data, array('id_data' => $id_data));
     }
+
+    
 
     public function hitungJumlahdesa()
     {

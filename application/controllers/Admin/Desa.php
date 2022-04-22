@@ -1,67 +1,61 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataDBD extends CI_Controller
+class Desa extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('ModelData');
+        $this->load->model('ModelDesa');
         $this->load->library('form_validation');
         cek_session();
     }
-
-    public function index()
+public function index()
     {
         $data = array();
 
-		//Flashdata
-		if ($this->session->userdata('success_msg')) {
-			$data['success_msg'] = $this->session->userdata('success_msg');
-			$this->session->unset_userdata('success_msg');
-		}
-		if ($this->session->userdata('error_msg')) {
-			$data['error_msg'] = $this->session->userdata('error_msg');
-			$this->session->unset_userdata('error_msg');
-		}
+		 //Flashdata
+         if ($this->session->userdata('success_msg')) {
+            $data['success_msg'] = $this->session->userdata('success_msg');
+            $this->session->unset_userdata('success_msg');
+        }
 
-        $data['title'] = "Data DBD | Dashboard Admin";
-        $data['datadbd'] = $this->ModelData->getdata()->result();
-        $data['desa'] = $this->ModelData->getDesa()->result();
+        $data['title'] = "Data Desa | Dashboard Admin";
+        $data['desa'] = $this->ModelDesa->tampil_datadesa()->result();
         $data['pengguna'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['count']		= $this->ModelData->count();
-        $data['countdesa']		= $this->ModelData->countdesa();
-
-        // var_dump(count($data['desa']));
-        // die;
-        // $this->db->get('datadbd')->result();
-
+        
         $this->load->view('dashboard/templates/header', $data);
         $this->load->view('dashboard/templates/navbar', $data);
         $this->load->view('dashboard/templates/sidebar', $data);
-        $this->load->view('dashboard/dataset/dataDBD', $data);
+        $this->load->view('dashboard/dataset/dataDesa', $data);
         $this->load->view('dashboard/templates/footer');
     }
 
-    public function tambahdata()
+    public function tambahdesa()
     {
-
-        $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
-        $this->form_validation->set_rules('jml_meninggal', 'jumlah meninggal', 'required|numeric');
         $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
+        $this->form_validation->set_rules('geojson', 'geojson', 'required|trim');
+        $this->form_validation->set_rules('latitude', 'latitude', 'required|trim');
+        $this->form_validation->set_rules('longtitude', 'longtitude', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            redirect('DataDBD');
+            $data['title'] = "Dashboard Admin";
+            $data['desa'] = $this->ModelDesa->tampil_datadesa()->result();
+
+            $this->load->view('dashboard/templates/header', $data);
+            $this->load->view('dashboard/templates/navbar', $data);
+            $this->load->view('dashboard/templates/sidebar', $data);
+            $this->load->view('dashboard/dataset/dataDesa', $data);
+            $this->load->view('dashboard/templates/footer');
         } else {
             $dataPost = array(
-                'id_desa' => $this->input->post('nama_desa'),
-                'jml_penderita' => $this->input->post('jml_penderita'),
-                'jml_meninggal' => $this->input->post('jml_meninggal'),
+                'nama_desa' => $this->input->post('nama_desa'),
+                'geojson' => $this->input->post('geojson'),
+                'latitude' => $this->input->post('latitude'),
+                'longtitude' => $this->input->post('longtitude'),
             );
-
-
-            if ($this->ModelData->create($dataPost)) {
+            if ($this->ModelDesa->create($dataPost)) {
                 $this->session->set_flashdata(
                     'success_msg',
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -72,7 +66,7 @@ class DataDBD extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('DataDBD');
+                redirect('Admin/Desa');
             } else {
                 $this->session->set_flashdata(
                     'error_msg',
@@ -84,35 +78,38 @@ class DataDBD extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('DataDBD');
+                redirect('Admin/Desa');
             }
         }
     }
 
-    public function editdata($id)
+    public function update($id = null)
     {
-        $this->form_validation->set_rules('jml_penderita', 'jumlah penderita', 'required|numeric');
-        $this->form_validation->set_rules('jml_meninggal', 'jumlah meninggal', 'required|numeric');
-        $this->form_validation->set_rules('nama_desa', 'desa', 'required|trim');
+        $this->form_validation->set_rules('geojson', 'geojson', 'required|trim');
+        $this->form_validation->set_rules('latitude', 'latitude', 'required|trim');
+        $this->form_validation->set_rules('longtitude', 'longtitude', 'required|trim');
+        $this->form_validation->set_rules('nama_desa', 'nama_desa', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Dashboard Admin";
             $data['pengguna'] = $this->db->get_where('pengguna', ['email' =>
             $this->session->userdata('email')])->row_array();
-            $data['datadbd'] = $this->ModelData->getdata()->result();
-            $data['detail'] = $this->ModelData->detail($id);
+            $data['desa'] = $this->ModelDesa->tampil_datadesa()->result();
+            $data['detaildesa'] = $this->ModelDesa->detail($id);
 
             $this->load->view('dashboard/templates/header', $data);
             $this->load->view('dashboard/templates/navbar', $data);
             $this->load->view('dashboard/templates/sidebar', $data);
-            $this->load->view('dashboard/dataset/edit_data', $data);
+            $this->load->view('dashboard/dataset/editDesa', $data);
             $this->load->view('dashboard/templates/footer');
         } else {
-            $id_data = $this->input->post('id_data');
-            $update = $this->ModelData->update(array(
-                'jml_penderita' => $this->input->post('jml_penderita'),
-                'jml_meninggal' => $this->input->post('jml_meninggal')
-            ), $id_data);
+            $update = $this->ModelDesa->update(array(
+                'id_desa' => $this->input->post('id_desa'),
+                'nama_desa' => $this->input->post('nama_desa'),
+                'geojson' => $this->input->post('geojson'),
+                'latitude' => $this->input->post('latitude'),
+                'longtitude' => $this->input->post('longtitude')
+            ), $id);
             if ($update) {
                 $this->session->set_flashdata(
                     'success_msg',
@@ -124,7 +121,7 @@ class DataDBD extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('DataDBD');
+                redirect('Admin/desa');
             } else {
                 $this->session->set_flashdata(
                     'error_msg',
@@ -136,18 +133,14 @@ class DataDBD extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('DataDBD');
+                redirect('Admin/desa');
             }
-        }
-    }
+       }  
+     }
 
-
-    function hapus($id)
+     public function delete($id)
     {
-        // $where = array('id_desa' => $id);
-
-        $delete = $this->ModelData->delete($id);
-
+        $delete = $this->ModelDesa->delete($id);
         if ($delete) {
             $this->session->set_flashdata(
                 'success_msg',
@@ -159,7 +152,7 @@ class DataDBD extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('DataDBD');
+            redirect('Admin/desa');
         } else {
             $this->session->set_flashdata(
                 'error_msg',
@@ -171,7 +164,7 @@ class DataDBD extends CI_Controller
 					</button>
 				</div>'
             );
-            redirect('DataDBD');
+            redirect('Admin/desa');
         }
     }
 }

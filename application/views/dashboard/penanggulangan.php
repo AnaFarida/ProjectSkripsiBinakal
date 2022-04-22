@@ -11,10 +11,10 @@
                     <?php echo $error_msg; ?>
                     <?php } ?>
                     <?php } ?>
-                    <h2>Pencegahan dan Penanggulangan DBD</h2>
+                    <h2>Penanggulangan dan Pencegahan DBD</h2>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Tambah Pencegahan dan Penanggulangan DBD
+                        Tambah Penanggulangan dan Pencegahan DBD
                     </button>
 
                     <!-- Modal Hapus -->
@@ -44,8 +44,8 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Form Tambah Pencegahan dan
-                                        Penanggulangan DBD</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Form Tambah Penanggulangan dan
+                                        Pencegahan DBD</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -76,7 +76,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Penanggulangan</h3>
+                <h3 class="card-title">Data Penanggulangan dan Pencegahan DBD </h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -84,7 +84,7 @@
                     <thead>
                         <tr class="text-center">
                             <th> No </th>
-                            <th> Pencegahan & Penanggulangan </th>
+                            <th> Penanggulangan dan Pencegahan</th>
                             <th> Aksi </th>
                         </tr>
                     </thead>

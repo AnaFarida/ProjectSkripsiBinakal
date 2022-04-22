@@ -26,9 +26,10 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDesa">
                         Tambah Desa
                     </button>
-                    <button type="button" class="btn btn-info" data-target="#modalDesa">
+
+                    <a type="button" class="btn btn-info" href="<?= base_url(); ?>admin/Desa">
                         Lihat Data Desa
-                    </button>
+                    </a>
                     <!-- Modal Hapus -->
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -129,26 +130,26 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="<?= base_url('DataDBD/tambahdesa') ?>" method="POST">
+                                <form action="<?= base_url('Admin/Desa/tambahdesa') ?>" method="POST">
                                     <div class="form-row">
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-12">
                                             <label>Desa</label>
                                             <input type="text" class="form-control" id="nama_desa" name="nama_desa">
                                             <?= form_error('nama_desa', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                         </div>
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-12">
                                             <label>Geojson</label>
                                             <input type="text" class="form-control" id="geojson" name="geojson">
                                             <?= form_error('geojson', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-12">
                                             <label>Latitude</label>
                                             <input type="text" class="form-control" id="latitude" name="latitude">
                                             <?= form_error('latitude', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
                                         </div>
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-12">
                                             <label>Longtitude</label>
                                             <input type="text" class="form-control" id="longtitude" name="longtitude">
                                             <?= form_error('longtitude', '<small style="padding-left: 0; margin-left: 0;" class="text-danger">', '</small>'); ?>
