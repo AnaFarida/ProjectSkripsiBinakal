@@ -46,7 +46,7 @@
                                 </tbody>
                             </table>
                         </font>
-                        <!-- <legend
+                        <legend
                             style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
                             <p class="text-white" style="text-align: center; margin: 0; font-weight: bold;">Centroid
                                 Akhir</p>
@@ -63,7 +63,7 @@
                         </div>
                         <?php }
                             }
-                        } ?> -->
+                        } ?>
                         <div class="card-body p-0">
                             <legend
                                 style="font-weight: bold; border-radius: 5px; width: 200px; padding: 5px; background-color: #5AAC4E; color: #5AAC4E;">
